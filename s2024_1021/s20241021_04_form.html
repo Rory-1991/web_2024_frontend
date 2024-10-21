@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+
+    <style>
+        span {
+            display: inline-block;
+            width: 10%;
+            text-align: center;
+            background-color: lightblue;
+        }
+
+        input[type="text"] {
+            /* width: 500px; */
+            width: 70%;
+        }
+
+        input[type="number"] {
+            /* width: 500px; */
+            width: 70%;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend>HR form </legend>
+        <form action="./getData.php">
+
+
+            <!-- input -->
+            <!-- input text -->
+            <!-- input number -->
+            <!-- input date -->
+            <!-- input file -->
+            <!-- input radio -->
+            <!-- input checkbox -->
+            <!-- input submit -->
+
+            <!-- select -->
+            <!-- textarea -->
+
+
+            <!-- input -->
+            <!-- input text -->
+            <p>
+                <span>
+                    <label for="">text</label>
+                </span>
+                <input type="text" name="myText" id="" value="text">
+            </p>
+
+            <!-- input number -->
+            <p>
+                <span>
+                    <label for="">number</label>
+                </span>
+                <input type="number" name="myNumber" id="" value="55688">
+            </p>
+            <!-- input date -->
+            <p>
+                <span>
+                    <label for="">date</label>
+                </span>
+                <input type="date" name="myDate" id="" value="2000-01-01">
+            </p>
+
+            <!-- input file -->
+            <p>
+                <span>
+                    <label for="">file</label>
+                </span>
+                <input type="file" name="myFile" id="">
+            </p>
+
+
+            <!-- input radio 單選 name 要一樣-->
+            <p>
+                Radio 單選
+            </p>
+            <p>
+                <input type="radio" name="myRadio" id="" value="html">
+                <label for="">html</label>
+                <input type="radio" name="myRadio" id="" value="css">
+                <label for="">css</label>
+                <input type="radio" name="myRadio" id="" value="javascript">
+                <label for="">javascript</label>
+            </p>
+            <!-- input checkbox 複選 name []-->
+            <p>
+                Checkbox 複選
+            </p>
+            <p>
+                <input type="checkbox" name="habit[]" id="" value="book">
+                <label for="">book</label>
+                <input type="checkbox" name="habit[]" id="" value="tv">
+                <label for="">tv</label>
+                <input type="checkbox" name="habit[]" id="" value="sleep">
+                <label for="">sleep</label>
+                <input type="checkbox" name="habit[]" id="" value="game">
+                <label for="">game</label>
+            </p>
+
+            <!-- select / (input text) -->
+            <p>
+                Select 下拉選單
+            </p>
+            <p>
+                <!-- <input type="text" name="mySelect" id="" value="goSelect"> -->
+                <select name="mySelect" id="">
+                    <option value="amy">amy</option>
+                    <option value="bob">bob</option>
+                    <option value="cat">cat</option>
+                </select>
+            </p>
+            <!-- textarea -->
+            <p>
+                Textarea 多行文字
+            </p>
+            <p>
+                <textarea name="myTextarea" id="" cols="50" rows="5"></textarea>
+            </p>
+
+
+
+            <!-- input submit-->
+            <p>
+                <input type="submit" value="submit">
+            </p>
+
+
+        </form>
+    </fieldset>
+</body>
+
+</html>

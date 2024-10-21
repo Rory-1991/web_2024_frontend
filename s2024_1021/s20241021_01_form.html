@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+
+    <!-- <style>
+        input {
+            width: 200px;
+            /* 設定所有輸入框的寬度 */
+        }
+    </style> -->
+</head>
+
+<body>
+
+
+    <form action="">
+        <label for="fname1">名字1:</label>
+        <input type="text" id="fname1" name="顯示在後端的名稱1" /*傳到後端PHP才會看* />
+        <label for="fname2">名字2:</label>
+        <input type="text" id="fname2" name="顯示在後端的名稱2">
+    </form>
+    <br>
+    <br>
+
+    <form action="">
+        <label for="test1">姓名:</label>
+        <input type="text" name="" id="test1">
+        <label for="test2">電話:</label>
+        <input type="text" name="" id="test2">
+        <br>
+        <input type="submit" value="送出">
+
+    </form>
+    <hr>
+    <fieldset>
+        <legend></legend>
+        <form action="./getData.php" method="get">
+            <label for="name1">姓名:</label>
+            <input type="text" name="myName" id="name1" placeholder="請輸入您的姓名">
+            <label for="mobile1">電話:</label>
+            <input type="text" name="myNumber" id="mobile1" placeholder="請輸入您的電話">
+            <br>
+            <label for="price">價格:</label>
+            <input type="number" name="myPrice" id="price" placeholder="0~999">
+            <label for="birthday">生日:</label>
+            <input type="date" name="myBirthday" id="birthday">
+
+            <br>
+            <p>
+                Radio 單選
+            </p>
+            <!-- Radio & Checkbox 都必須給 value 後端才能顯示-->
+            <!-- 單選 必須每個name屬性都一樣 -->
+
+            <input type="radio" name="options" id="optionA" value="optionA">
+            <label for="optionA">選項A</label><br>
+            <input type="radio" name="options" id="optionB" value="optionB">
+            <label for="optionB">選項B</label><br>
+            <input type="radio" name="options" id="optionC" value="optionC">
+            <label for="optionC">選項C</label><br>
+
+            <br>
+            <p>
+                Checkbox 複選
+            </p>
+            <!-- input checkbox 複選 name []-->
+            <form action="./getData.php" method="get">
+                <input type="checkbox" name="pet[]" id="meow" value="cat">
+                <label for="meow">I have a cat</label>
+                <input type="checkbox" name="pet[]" id="won" value="dog">
+                <label for="won">I have a dog</label>
+                <input type="checkbox" name="pet[]" id="wonmeow" value="both">
+                <label for="wonmeow">I have both</label>
+
+                <p>
+                    Select 下拉選單
+                </p>
+                <select name="mySelect" id="">
+                    <option value="amy">amy</option>
+                    <option value="bob">bob</option>
+                    <option value="jack">jack</option>
+                </select>
+
+                <p>
+                    Textarea 多行文字
+                </p>
+                <textarea name="myTextarea" id="" cols="50" rows="8"></textarea>
+
+                <input type="submit" value="submit">
+
+            </form>
+
+
+        </form>
+    </fieldset>
+
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        fieldset {
+            border: 2px solid #55a4f8;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #fff;
+            width: 500px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        legend {
+            font-size: 1.8em;
+            color: #4080c5;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-size: 1.1em;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #efcce4;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            margin-right: 5px;
+            vertical-align: middle;
+        }
+
+        input[type="submit"] {
+            background-color: #4f83bb;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+
+        /* input[type="submit"]:hover {
+            background-color: #adcaeade;
+        } */
+
+        p {
+            margin: 10px 0;
+        }
+
+        .checkbox-label {
+            margin-right: 15px;
+        }
+
+        .shift-time,
+        .area-options {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <fieldset>
+        <legend>HR Form</legend>
+        <form action="./getData.php" method="get">
+            <label for="name1">姓名:</label>
+            <input type="text" name="myName" id="name1" placeholder="請輸入您的姓名">
+
+            <label for="mobile1">電話:</label>
+            <input type="text" name="myNumber" id="mobile1" placeholder="請輸入您的電話">
+
+            <label for="age">年齡:</label>
+            <input type="number" name="myAge" id="age" placeholder="0~99">
+
+            <label for="birthday">生日:</label>
+            <input type="date" name="myBirthday" id="birthday">
+
+            <label for="myEmail">信箱:</label>
+            <input type="email" name="myEmail" id="myEmail" placeholder="eg. apple@gmail.com">
+
+            <p>居住地:</p>
+            <div class="area-options">
+                <label class="checkbox-label">
+                    <input type="radio" name="Area" id="northArea" value="northArea"> 北北基桃
+                </label>
+                <label class="checkbox-label">
+                    <input type="radio" name="Area" id="middleArea" value="middleArea"> 中部
+                </label>
+                <label class="checkbox-label">
+                    <input type="radio" name="Area" id="southArea" value="southArea"> 南部
+                </label>
+            </div>
+
+            <p>可以的工作時段:</p>
+            <div class="shift-time">
+                <label class="checkbox-label">
+                    <input type="checkbox" name="shiftTime[]" id="morning" value="morning"> 09:00~17:00
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="shiftTime[]" id="daytime" value="daytime"> 13:00~21:00
+                </label>
+                <label class="checkbox-label">
+                    <input type="checkbox" name="shiftTime[]" id="night" value="night"> 16:00~00:00
+                </label>
+            </div>
+
+            <p>應徵職缺:</p>
+            <select name="mySelect" id="">
+                <option value="frontend">前端</option>
+                <option value="backend">後端</option>
+                <option value="full-stack">全端</option>
+            </select>
+
+            <p><label for="">上傳作品:</label></p>
+            <input type="file" name="myFile" id="">
+
+            <p>自我介紹:</p>
+            <textarea name="myTextarea" id="" cols="50" rows="8"></textarea>
+
+            <input type="submit" value="提交">
+        </form>
+    </fieldset>
+
+</body>
+
+</html>

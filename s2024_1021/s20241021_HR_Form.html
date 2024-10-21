@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        span {
+            display: inline-block;
+            width: 10%;
+            text-align: center;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <fieldset>
+        <legend>HR Form</legend>
+        <form action="./getData.php" method="get">
+            <label for="name1">姓名:</label>
+            <input type="text" name="myName" id="name1" placeholder="請輸入您的姓名">
+            <label for="mobile1">電話:</label>
+            <input type="text" name="myNumber" id="mobile1" placeholder="請輸入您的電話">
+            <br>
+            <label for="age">年齡:</label>
+            <input type="number" name="myAge" id="age" placeholder="0~99">
+            <label for="birthday">生日:</label>
+            <input type="date" name="myBirthday" id="birthday">
+            <label for="Email">信箱:</label>
+            <input type="email" name="myEmail" id="myEmail">
+
+            <br>
+            <p>
+                居住地
+            </p>
+            <!-- Radio & Checkbox 都必須給 value 後端才能顯示-->
+            <!-- 單選 必須每個name屬性都一樣 -->
+
+            <input type="radio" name="Area" id="northArea" value="northArea">
+            <label for="optionA">北北基桃</label><br>
+            <input type="radio" name="Area" id="middleArea" value="middleArea">
+            <label for="optionB">中部</label><br>
+            <input type="radio" name="Area" id="southArea" value="southArea">
+            <label for="optionC">南部</label><br>
+
+            <br>
+            <p>
+                可以的工作時段:
+            </p>
+            <!-- input checkbox 複選 name []-->
+            <form action="./getData.php" method="get">
+                <input type="checkbox" name="shiftTime[]" id="morning" value="morning">
+                <label for="早班">09:00~17:00</label>
+                <input type="checkbox" name="shiftTime[]" id="daytime" value="daytime">
+                <label for="中班">13:00~21:00</label>
+                <input type="checkbox" name="shiftTime[]" id="night" value="night">
+                <label for="晚班">16:00~00:00</label>
+
+                <p>
+                    應徵職缺:
+                </p>
+                <select name="mySelect" id="">
+                    <option value="frontend">前端</option>
+                    <option value="backend">後端</option>
+                    <option value="full-stack">全端</option>
+                </select>
+
+                <p>
+                    <span>
+                        <label for="">上傳作品</label>
+                    </span>
+                    <input type="file" name="myFile" id="">
+                </p>
+
+                <p>
+                    自我介紹
+                </p>
+                <textarea name="myTextarea" id="" cols="50" rows="8"></textarea>
+
+                <input type="submit" value="Submit">
+
+            </form>
+
+
+        </form>
+    </fieldset>
+
+</body>
+
+</html>
