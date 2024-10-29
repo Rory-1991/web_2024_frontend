@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>飯店樓層導引</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://cf.bstatic.com/xdata/images/hotel/max1024x768/580275914.jpg?k=ba06cf08c536719e956bcb478412750da717421d8cfe187ff7713688d5b11966&o=&hp=1');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        h3 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 2em;
+        }
+
+        h4 {
+            text-align: center;
+            color: #fff;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(174, 130, 82, 0.8);
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        .nav-item {
+            margin: 0 15px;
+            text-align: center;
+        }
+
+        .nav-item a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.5em;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+
+        .nav-item a:hover {
+            background-color: #bd9379;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        tr {
+            transition: background-color 0.3s;
+        }
+
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        td {
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+        }
+
+        td a {
+            text-decoration: none;
+            color: #931d67;
+            font-size: 1.2em;
+            display: block;
+            line-height: 60px;
+            /* Center vertically */
+            transition: color 0.3s;
+        }
+
+        td a:hover {
+            color: #895fac;
+        }
+
+        @media (max-width: 600px) {
+
+            .nav-item a,
+            td a {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Hilton Taipei Hotel</h3>
+    <h4>樓層導引</h4>
+    <div class="navbar">
+        <div class="nav-item">
+            <a href="./f1.html">1F 港式飲茶</a>
+        </div>
+        <div class="nav-item">
+            <a href="./f2.html">2F 日式料理</a>
+        </div>
+        <div class="nav-item">
+            <a href="./f3.html">3F 自助餐</a>
+        </div>
+        <div class="nav-item">
+            <a href="./f4.html">4F 空中花園酒吧</a>
+        </div>
+    </div>
+
+    <table>
+        <tr>
+            <td>
+                <a href="./f4.html">4F</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="./f3.html">3F</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="./f2.html">2F</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="./f1.html">1F</a>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
