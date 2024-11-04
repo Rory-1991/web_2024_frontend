@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #8e75e0;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        .head {
+            width: 100px;
+            height: 100px;
+            background-color: #fb5c5c;
+            border-radius: 50%;
+            text-align: center;
+        }
+
+        .main {
+            width: 100px;
+            height: 150px;
+            background-color: #60cea4;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .foot1 {
+            /* width: 40px; */
+            height: 20px;
+            background-color: #9dc6fa;
+            border-radius: 5px;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .foot2 {
+            /* width: 40px; */
+            height: 20px;
+            background-color: #fcf886;
+            border-radius: 5px;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .spacer {
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td colspan="2" class="head"></td>
+        </tr>
+        <tr class="spacer">
+            <td colspan="2"></td>
+        </tr>
+        <tr>
+            <td colspan="2" class="main"></td>
+        </tr>
+        <tr class="spacer">
+            <td colspan="2"></td>
+        </tr>
+        <tr>
+            <td class="foot1"></td>
+            <td class="foot2"></td>
+        </tr>
+    </table>
+</body>
+
+</html>

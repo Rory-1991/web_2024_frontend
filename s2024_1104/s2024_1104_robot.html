@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RobotTest</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            /* 讓機器人站直 */
+            align-items: center;
+            /* 讓身體跟頭水平置中 */
+            justify-content: center;
+            /* 讓整個機器人在畫面中垂直置中 */
+            height: 80vh;
+            /* 身體佔滿視窗比例 */
+            background-color: #b88bd2;
+        }
+
+        .head {
+            width: 80px;
+            height: 80px;
+            background-color: #fb5c5c;
+            border-radius: 50%;
+        }
+
+        .main {
+            width: 150px;
+            /* 身體寬度可以調整 */
+            height: 150px;
+            background-color: #60cea4;
+            border-radius: 10px;
+
+        }
+
+        .feet {
+            display: flex;
+            /* 讓兩隻腳可以水平擺放 */
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .foot-left {
+            /* display: flex; 因為.feet已經有了 */
+            width: 50px;
+            height: 20px;
+            background-color: #9dc6fa;
+            border-radius: 5px;
+        }
+
+        .foot-right {
+            /* display: flex; 因為.feet已經有了 */
+            width: 50px;
+            height: 20px;
+            background-color: #fcf886;
+            border-radius: 5px;
+        }
+
+        .space {
+            height: 5%;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="head"></div>
+
+    <div class="main"></div>
+
+    <div class="space"></div>
+
+    <div class="feet">
+        <div class="foot-left"></div>
+        <div class="foot-right"></div>
+    </div>
+
+
+</body>
+
+</html>
