@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            /* 乙級 丙級 或者特定大小 */
+            /* 網頁失去往下滑的能力 */
+            /* overflow: hidden; */
+        }
+
+
+        .box1 {
+            background-image: url('./images/bg.jpg');
+            width: 200px;
+            height: 280px;
+            background-color: lightblue;
+            /* background-position: center top; */
+            background-position: left top;
+        }
+
+        .box2 {
+            background-image: url('./images/bg.jpg');
+            width: 200px;
+            height: 280px;
+            background-color: lightblue;
+            /* background-position: center top; */
+            background-position: 25% top;
+        }
+
+        .box3 {
+            background-image: url('./images/bg.jpg');
+            width: 200px;
+            height: 280px;
+            background-color: lightblue;
+            /* background-position: center top; */
+            background-position: 50% top;
+        }
+
+
+
+        table {
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- img -->
+    <h3>img 圖片</h3>
+    <img src="./images/bg.jpg" alt="">
+
+    <hr>
+    <!-- box background-img -->
+    <h3>box background-img</h3>
+    <div class="box1">
+
+    </div>
+
+    <!-- box bg-img table -->
+
+    <table>
+        <tr>
+            <td>
+                <div class="box1">
+
+                </div>
+            </td>
+            <td>
+                <div class="box2">
+
+                </div>
+            </td>
+            <td>
+                <div class="box3">
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="box1">
+
+                </div>
+            </td>
+            <td>
+                <div class="box1">
+
+                </div>
+            </td>
+            <td>
+                <div class="box1">
+
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="box1">
+
+                </div>
+            </td>
+            <td>
+                <div class="box1">
+
+                </div>
+            </td>
+            <td>
+                <div class="box1">
+
+                </div>
+            </td>
+        </tr>
+    </table>
+
+</body>
+
+</html>

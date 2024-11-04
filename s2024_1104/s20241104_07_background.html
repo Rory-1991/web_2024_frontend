@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            /* overflow: hidden;
+            把超出設定範圍的背景圖片隱藏  */
+            /* 乙級 丙級 或者特定大小 */
+            /* 使用overflow: hidden會讓網頁失去往下滑的功能 */
+        }
+
+
+        .box1 {
+            width: 200px;
+            height: 280px;
+            background-color: lightblue;
+            /* 先做完以上三個後在設定背景圖片，
+            圖片就會符合設定範圍大小 */
+            background-image: url('./images/bg.jpg');
+        }
+
+        .box2 {
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+            background-image: url('./images/bg.jpg');
+            background-position: center;
+            /* 改變背景圖片位置 */
+            background-repeat: no-repeat;
+            /* 防止圖片重複 */
+            background-size: cover;
+            /* 使圖片覆蓋整個容器，保持比例 */
+        }
+
+        .box3 {
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+            background-image: url('./images/bg.jpg');
+            background-position: top left;
+            /* 改變背景圖片位置 */
+        }
+
+        .box4 {
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+            background-image: url('./images/bg.jpg');
+            background-position: bottom right;
+            /* 改變背景圖片位置 */
+
+        }
+
+        .box5 {
+            width: 200px;
+            height: 280px;
+            background-color: lightblue;
+            background-image: url('./images/bg.jpg');
+            background-position: 25% bottom;
+            /* 改變背景圖片位置 */
+        }
+
+        .box6 {
+            width: 200px;
+            height: 280px;
+            background-color: lightblue;
+            background-image: url('./images/bg.jpg');
+            background-position: 99% 2%;
+            /* 改變背景圖片位置 */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- img -->
+    <h3>img 完整圖片</h3>
+    <img src="./images/bg.jpg" alt="">
+
+    <hr>
+    <!-- box background-img -->
+    <h3>box background-img 自行裁切</h3>
+    <div class="box1">
+
+    </div>
+
+    <hr>
+    <h3>box background-positio 中間</h3>
+    <div class="box2">
+
+    </div>
+
+    <hr>
+    <h3>box background-positio 左上</h3>
+    <div class="box3">
+
+    </div>
+
+
+    <hr>
+    <h3>box background-positio 右下</h3>
+    <div class="box4">
+
+    </div>
+    <hr>
+    <h3>box background-positio 以百分比改變</h3>
+    <div class="box5">
+
+    </div>
+    <hr>
+    <h3>box background-positio 以百分比改變</h3>
+    <div class="box6">
+
+    </div>
+
+</body>
+
+</html>

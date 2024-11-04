@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        /* 一開始 */
+        p {
+            border-left: 6px solid blue;
+            background-color: lightblue;
+            height: 66px;
+
+        }
+
+        /* 想讓文字垂直置中
+方法 1：使用 line-height
+如果你的段落內容只有一行文字，
+可以將 line-height 設置為與 height 相等的值。
+這樣可以使文字在垂直方向上居中。 */
+
+        p {
+            border-left: 6px solid blue;
+            background-color: lightblue;
+            height: 66px;
+            line-height: 66px;
+            /* 設置與高度相等 */
+            margin: 0;
+            /* 清除默認邊距 */
+        }
+
+        /* 方法 2：使用 Flexbox
+如果你想要在包含多行文本的段落中也能垂直置中，可以使用 Flexbox： */
+
+        p {
+            border-left: 6px solid blue;
+            background-color: lightblue;
+            height: 66px;
+            display: flex;
+            /* 啟用 Flexbox */
+            align-items: center;
+            /* 垂直居中 */
+            /* justify-content: center;  水平居中（可選）  */
+            margin: 0;
+            /* 清除默認邊距 */
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>The border-left Property</h2>
+    <p>This property is a shorthand property for border-left-width, border-left-style, and border-left-color.</p>
+
+</body>
+
+</html>
