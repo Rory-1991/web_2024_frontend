@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sticky Example</title>
+  <style>
+    div.sticky {
+      position: sticky;
+      top: 50px;
+      /* 设置 top 为 50px */
+      padding: 5px;
+      background-color: #cae8ca;
+      border: 2px solid #4CAF50;
+    }
+
+    .content {
+      height: 1500px;
+      /* 使页面有滚动条 */
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <div class="sticky">This is a sticky element. It will stick 50px from the top.</div>
+    <p>Scroll down to see the sticky effect.</p>
+    <p>More content...</p>
+    <!-- 长内容，确保页面可以滚动 -->
+  </div>
+</body>
+
+</html>
