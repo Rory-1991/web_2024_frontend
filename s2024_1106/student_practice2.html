@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position: Absolute</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 2000px;
+            width: 100%;
+        }
+
+        .header {
+            z-index: 1;
+            position: fixed;
+            top: 0px;
+            right: 0px;
+            left: 0px;
+            width: 100%;
+            height: 50px;
+            background-color: blueviolet;
+            opacity: 0.5;
+        }
+
+        /* 底部 */
+        div.green-box {
+            margin: auto;
+            margin-top: 15vh;
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: paleturquoise;
+            border-radius: 5px;
+        }
+
+        /* 左上 */
+        .red-box {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            left: 5%;
+            top: 10%;
+            background-color: lightcoral;
+        }
+
+        /* 右上 */
+        .yellow-box {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            right: 5%;
+            top: 10%;
+            background-color: lightyellow;
+        }
+
+        /* 左下 */
+        .blue-box {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            left: 5%;
+            bottom: 10%;
+            background-color: lightblue;
+        }
+
+        /* 右下 */
+        div.pink-box {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            right: 5%;
+            bottom: 10%;
+            background-color: lightpink;
+        }
+
+        /* .fixed{
+            position: fixed;
+            right: 10%;
+        } */
+
+        .my-text {
+            font-size: 25px;
+            text-align: center;
+            padding-top: 6%;
+            border-radius: 10px;
+            box-shadow: 10px 10px 15px grey;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header"></div>
+    <div class="box">
+        <div class="green-box">
+            <!-- 左上 -->
+            <div class="red-box my-text">(´∩ω∩｀)</div>
+            <!-- 右上 -->
+            <div class="yellow-box my-text">(´▽`ʃ♡ƪ)"</div>
+            <!-- 左下 -->
+            <div class="blue-box my-text">(=^-ω-^=)</div>
+            <!-- 右下 -->
+            <div class="pink-box my-text">(╯•̀ὤ•́)╯</div>
+        </div>
+    </div>
+</body>
+
+</html>

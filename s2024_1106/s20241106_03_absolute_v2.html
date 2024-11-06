@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>絕對位置2</title>
+    <style>
+        .green-box {
+            margin: auto;
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: rgb(162, 197, 162);
+        }
+
+
+        /* 右下 */
+        .pink-box {
+            position: absolute;
+            right: 5%;
+            bottom: 10%;
+            width: 150px;
+            height: 150px;
+            background-color: lightpink;
+            border-radius: 10px;
+            /* box-shadow: 10px 10px 15px grey; */
+        }
+
+        /* 左下 */
+        .yellow-box {
+            position: absolute;
+            left: 5%;
+            bottom: 10%;
+            width: 150px;
+            height: 150px;
+            background-color: lightyellow;
+            border-radius: 10px;
+            /* box-shadow: 10px 10px 15px grey; */
+        }
+
+        /* 右上 */
+        .red-box {
+            position: absolute;
+            right: 5%;
+            top: 10%;
+            width: 150px;
+            height: 150px;
+            background-color: rgb(201, 148, 148);
+            border-radius: 10px;
+            /* box-shadow: 10px 10px 15px grey; */
+        }
+
+        /* 左上 */
+        .purple-box {
+            position: absolute;
+            left: 5%;
+            top: 10%;
+            width: 150px;
+            height: 150px;
+            background-color: rgb(154, 100, 154);
+            border-radius: 10px;
+            /* box-shadow: 10px 10px 15px grey; */
+        }
+
+        .corner-text {
+            position: absolute;
+            font-weight: bold;
+            color: rgb(0, 0, 0);
+        }
+
+        /* 右下 */
+        .right-bottom {
+            right: 10px;
+            bottom: 10px;
+            text-align: right;
+        }
+
+        /* 左下 */
+        .left-bottom {
+            left: 10px;
+            bottom: 10px;
+            text-align: left;
+        }
+
+        /* 右上 */
+        .right-top {
+            right: 10px;
+            top: 10px;
+            text-align: right;
+        }
+
+        /* 左上 */
+        .left-top {
+            left: 10px;
+            top: 10px;
+            text-align: left;
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* 完全居中 */
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="green-box">
+        <div class="pink-box box">
+            <div class="corner-text right-bottom">右下</div>
+            <div class="corner-text left-bottom">左下</div>
+            <div class="corner-text center">ฅ˙Ⱉ˙ฅ</div>
+            <div class="corner-text right-top">右上</div>
+            <div class="corner-text left-top">左上</div>
+        </div>
+        <div class="yellow-box box">
+            <div class="corner-text right-bottom">右下</div>
+            <div class="corner-text left-bottom">左下</div>
+            <div class="corner-text center">ᖰ⌯‘▾’⌯ᖳ</div>
+            <div class="corner-text right-top">右上</div>
+            <div class="corner-text left-top">左上</div>
+        </div>
+        <div class="red-box box">
+            <div class="corner-text right-bottom">右下</div>
+            <div class="corner-text left-bottom">左下</div>
+            <div class="corner-text center">( இωஇ )</div>
+            <div class="corner-text right-top">右上</div>
+            <div class="corner-text left-top">左上</div>
+        </div>
+        <div class="purple-box box">
+            <div class="corner-text right-bottom">右下</div>
+            <div class="corner-text left-bottom">左下</div>
+            <div class="corner-text center">ฅ(´꒳ `ฅ)</div>
+            <div class="corner-text right-top">右上</div>
+            <div class="corner-text left-top">左上</div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============= 共用 ============= */
+        body {
+            height: 100vh;
+            color: rgb(45, 44, 51);
+            font-family: "Noto Sans TC", sans-serif;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+        }
+
+        .section {
+            height: 100vh;
+            scroll-snap-align: start;
+            /* 滾動到每一個區塊的開始 */
+        }
+
+
+        /* ============= 放圖片區 ============= */
+        .s1 {
+            background-image: url(https://picsum.photos/id/52/1920/1080);
+        }
+
+        .s2 {
+            background-image: url(https://picsum.photos/id/149/1920/1080);
+        }
+
+
+        /* ============= 白天 ============= */
+
+
+        .box {
+            position: relative;
+            width: 60%;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+            /* position: fixed; */
+            top: 25%;
+            left: 5%;
+        }
+
+        .boxInbox {
+            position: absolute;
+            background-color: rgb(255, 205, 22);
+            box-shadow: 0 0 80px 40px rgb(255, 237, 172);
+            border-radius: 100px;
+            width: 100px;
+            height: 100px;
+            right: -5%;
+            top: -10%;
+        }
+
+        .boxInbox_c {
+            position: absolute;
+            background-color: rgb(255, 255, 255);
+            border-radius: 500px;
+            width: 100px;
+            height: 52px;
+            top: -10%;
+            opacity: 0.9;
+            /* border: 1px solid #c0c1dd; */
+            box-shadow: 2px 2px 5px rgba(0, 38, 255, 0.1);
+        }
+
+        .c1 {
+            top: -5%;
+            left: 5%;
+        }
+
+
+        .c2 {
+            top: -3%;
+            left: -2%;
+        }
+
+        .boxInbox_green {
+            font-size: 30px;
+            position: absolute;
+            top: 90%;
+            color: green;
+            text-shadow: 2px 2px 5px rgb(34, 50, 4);
+        }
+
+        .boxInbox_bigGreen {
+            position: absolute;
+            font-size: 72px;
+            top: 76%;
+            left: 90%;
+            color: rgb(50, 94, 50);
+            text-shadow: 2px 2px 5px rgb(34, 50, 4);
+        }
+
+        .boxInbox_f {
+            font-size: 30px;
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            color: crimson;
+            left: -1%;
+            top: 92%;
+        }
+
+        .f {
+            position: absolute;
+        }
+
+        .f1 {
+            top: 10px;
+            left: 10px;
+        }
+
+        .f2 {
+            top: -10px;
+            left: 10px;
+        }
+
+        .f3 {
+            top: 10px;
+            left: -10px;
+        }
+
+        .f4 {
+            top: -10px;
+            left: -10px;
+        }
+
+        .f_conter {
+            color: orange;
+        }
+
+        img {
+            border: 10px solid #fff;
+            box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .pic_1 {
+            position: fixed;
+            top: 20%;
+            right: -40%;
+        }
+
+        .pic_2 {
+            position: relative;
+            top: 100%;
+            left: 20%;
+        }
+
+        .pic_3 {
+            position: relative;
+            top: 270%;
+            left: 20%;
+        }
+
+        /* ============= 晚上 ============= */
+
+        #night {
+            position: relative;
+        }
+
+        .dark {
+            background-color: rgb(189, 183, 219);
+            box-shadow: 0 0 80px 3px rgb(255, 255, 255),
+                1px 1px 5px 1px rgb(0, 0, 0);
+        }
+
+        .dark_c {
+            background-color: rgb(60, 55, 77);
+            box-shadow: 2px 2px 5px 5px rgba(170, 180, 240, 0.1);
+        }
+
+        .star {
+            color: rgb(236, 204, 98);
+            font-size: 50px;
+            position: absolute;
+        }
+
+        .big_boat {
+            position: absolute;
+            font-size: 72px;
+            top: 83%;
+            left: -3%;
+            color: rgb(217, 219, 240);
+            text-shadow: 0 2px 3px rgb(73, 80, 119);
+        }
+
+        .big_star {
+            position: absolute;
+            font-size: 72px;
+            top: 88%;
+            left: 95%;
+        }
+
+        .l1 {
+            top: 32%;
+            left: 12%;
+        }
+
+        .l2 {
+            top: 58%;
+            left: 78%;
+        }
+
+        .l3 {
+            top: 10%;
+            left: 65%;
+        }
+
+        .l4 {
+            top: 72%;
+            left: 25%;
+        }
+
+        .l5 {
+            top: 85%;
+            left: 40%;
+        }
+
+        .l6 {
+            top: 18%;
+            left: 88%;
+        }
+
+        .l7 {
+            top: 53%;
+            left: 5%;
+        }
+
+        .l8 {
+            top: 27%;
+            left: 92%;
+        }
+
+        .l9 {
+            top: 5%;
+            left: 3%;
+        }
+
+        .l10 {
+            top: 12%;
+            left: 8%;
+        }
+
+        .l11 {
+            top: 2%;
+            left: 37%;
+        }
+
+        .l12 {
+            top: 8%;
+            left: 15%;
+        }
+
+        .l13 {
+            top: 20%;
+            left: 27%;
+        }
+
+        .jump {
+            animation: jump-move 0.75s infinite alternate;
+            display: inline-block;
+            text-shadow: 0px 5px 30px rgb(255, 255, 255);
+            padding: 8px;
+        }
+
+        @keyframes jump-move {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            25% {
+                transform: translateY(-20px);
+            }
+
+            75% {
+                transform: translateY(20px);
+            }
+
+        }
+
+        .jump:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .jump:nth-child(2) {
+            animation-delay: 0.6s;
+        }
+
+        .jump:nth-child(3) {
+            animation-delay: 0.9s;
+        }
+
+        .jump:nth-child(4) {
+            animation-delay: 1.2s;
+        }
+
+        .jump:nth-child(5) {
+            animation-delay: 1.5s;
+        }
+
+        .jump:nth-child(6) {
+            animation-delay: 1.8s;
+        }
+
+        .jump:nth-child(7) {
+            animation-delay: 2.1s;
+        }
+
+        .jump:nth-child(8) {
+            animation-delay: 2.4s;
+        }
+
+        .jump:nth-child(9) {
+            animation-delay: 2.7s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- ============== 白天 ============== -->
+        <div id="morning" class="section s1">
+            <div class="box">
+                <div class="boxInbox"></div>
+                <div class="boxInbox_c c1"></div>
+                <div class="boxInbox_c c2"></div>
+                <div class="boxInbox_c c3"></div>
+                <div class="boxInbox_green">▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲</div>
+                <div class="boxInbox_bigGreen">▲▲</div>
+                <div class="boxInbox_f">
+                    <div class="f f1">●</div>
+                    <div class="f f2">●</div>
+                    <div class="f f3">●</div>
+                    <div class="f f4">●</div>
+                    <div class="f f_conter">●</div>
+                </div>
+                <h2>早晨的碼頭之旅：與小貓小狗共度的悠閒時光</h2>
+                <p>如果你是動物愛好者，碼頭無疑是一個理想的旅遊目的地。這個寧靜的小鎮，不僅擁有迷人的自然景觀，還是小貓小狗的天堂。無論是在青翠的山坡上漫步，還是走在充滿回憶的古老街道上，你都能隨處看到那些活潑可愛的小動物們，牠們在這裡自由自在地生活，為這個地方增添了不少生氣與溫馨。
+                </p>
+                <p>走在碼頭的街巷中，總會遇到一兩隻懶洋洋的小貓蜷縮在陽光下，或是小狗在街頭嬉戲，牠們不畏生人，熱情地向遊客打招呼。這些可愛的小動物成為了當地的「明星」，許多遊客來到這裡，除了欣賞美麗的風景外，更期待與這些動物親密接觸，甚至會特意準備一些小零食來吸引牠們。
+                </p>
+                <p>在這片祥和的小鎮，你可以放慢腳步，靜靜地享受與小動物們共度的時光。或許，偶爾也會發現牠們間的互動，看到一隻貓咪和小狗並肩走過街頭，彷彿是最自然的風景畫。</p>
+                <p>如果你想讓這次旅行更添樂趣，不妨攜帶一些零食或是小玩具，與這些可愛的小貓小狗分享這段悠閒的旅程，為你的碼頭之行增添更多難忘的回憶。</p>
+                <img src="https://picsum.photos/id/237/300/200" class="pic_1">
+            </div>
+        </div>
+
+        <!-- ============== 晚上 ============== -->
+        <div id="night" class="section s2">
+            <div>
+                <span class="jump star l1">✦</span>
+                <span class="jump star l2">★</span>
+                <span class="jump star l3">✦</span>
+                <span class="jump star l4">★</span>
+                <span class="jump star l5">★</span>
+                <span class="jump star l6">★</span>
+                <span class="jump star l7">✦</span>
+                <span class="jump star l8">★</span>
+            </div>
+
+            <div>
+                <span class="jump star l9">✦</span>
+                <span class="jump star l10">★</span>
+                <span class="jump star l11">✦</span>
+                <span class="jump star l12">★</span>
+                <span class="jump star l13">★</span>
+            </div>
+
+
+            <div class="box">
+                <div class="boxInbox dark"></div>
+                <div class="boxInbox_c c1 dark_c"></div>
+                <div class="boxInbox_c c2 dark_c"></div>
+                <div class="boxInbox_c c3 dark_c"></div>
+                <div class="big_star">🌠</div>
+                <div class="big_boat">⛴︎</div>
+
+                <h2>夜晚的碼頭之旅：與貓貓和星星相伴</h2>
+                <p>夜幕降臨，海風輕輕拂過，帶來一絲涼意。碼頭上，人潮漸漸散去，只剩下偶爾傳來的波浪聲和遠處船隻的引擎聲。我和一隻黑白相間的小貓坐在碼頭邊，默默享受這份寧靜。貓咪輕輕地蜷縮在我旁邊，眼睛半閉，似乎也在沉浸在這個夜晚的寧和中。月光透過雲層，灑在水面上，映出點點銀光，彷彿無數顆星星在水中跳動。
+                </p>
+                <p>隨著夜色加深，碼頭上只剩下微弱的燈光，映照著我和貓咪的身影。我靜靜地坐著，望向遠方的星空，心中泛起一陣恬靜。海面如鏡，反射著星星的光輝，仿佛那無垠的天際正輕輕與海水交融。貓咪伸出爪子輕輕撥動著水面，輕微的波紋漸漸擴散開來，打破了夜的沉默，但又不失柔和。它的動作優雅又安詳，像是在和這片寧靜的夜晚溝通。
+                </p>
+                <p>隨著時間流逝，夜空中的星星變得更加明亮，每一顆星星都像是眨眼的眼睛，靜靜地注視著我們。貓咪跳到我的腿上，蹭了蹭我的手腕，似乎是在向我傳遞一份安慰。此時的我們，與這片廣闊的夜空和寧靜的海面融為一體，所有的喧囂與煩憂都似乎被拋在了遠方。此刻，與貓咪一同在這片寧靜的碼頭上，聆聽海浪和星星的低語，成為了最美好的時光。
+                </p>
+                <p>不知不覺，夜已深，海風更加涼爽。我輕輕抱起貓咪，站起身來，慢慢向回走去。回頭望向那片繁星點點的夜空，心中充滿了感激和滿足。這一夜，與貓貓和星星相伴，是那麼的平和而美好。</p>
+                <img src="https://picsum.photos/id/40/300/200" class="pic_1">
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- <img src="https://picsum.photos/id/40/300/200" class="pic_2"> -->
+    <!-- <img src="https://picsum.photos/id/275/300/200" class="pic_3"> -->
+
+
+</body>
+
+</html>

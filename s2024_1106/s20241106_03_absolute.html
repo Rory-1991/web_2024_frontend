@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>絕對位置</title>
+    <style>
+        .green-box {
+            margin: auto;
+            position: relative;
+            width: 800px;
+            height: 600px;
+            background-color: lightgreen;
+        }
+
+        .pink-box {
+            position: absolute;
+            right: 5%;
+            bottom: 10%;
+            width: 150px;
+            height: 150px;
+            background-color: lightpink;
+        }
+
+        .yellow-box {
+            position: absolute;
+            left: 5%;
+            bottom: 10%;
+            width: 150px;
+            height: 150px;
+            background-color: lightyellow;
+        }
+
+        .red-box {
+            position: absolute;
+            right: 5%;
+            top: 10%;
+            width: 150px;
+            height: 150px;
+            background-color: red;
+        }
+
+        .purple-box {
+            position: absolute;
+            left: 5%;
+            top: 10%;
+            width: 150px;
+            height: 150px;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="green-box">
+        <div class="pink-box">右下</div>
+        <div class="yellow-box">左下</div>
+        <div class="red-box">右上</div>
+        <div class="purple-box">左上</div>
+    </div>
+</body>
+
+</html>
