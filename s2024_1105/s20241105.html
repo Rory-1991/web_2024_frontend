@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            position: relative;
+            background-image: url('./images/bg.png');
+            width: 499px;
+            height: 713px;
+            background-color: lightblue;
+        }
+
+        .btn {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            /* display: inline-block; */
+            z-index: 100;
+        }
+
+        .btn1 {
+            position: absolute;
+            background-color: lightpink;
+            top: 292px;
+            right: 173px;
+            opacity: 0.5;
+        }
+
+        .btn2 {
+            position: absolute;
+            background-color: lightyellow;
+            top: 0px;
+            left: 0px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- <img src="./images/bg.png" alt="" srcset=""> -->
+    <div class="box">
+        <div class="btn1 btn"></div>
+        <!-- <div class="btn2 btn"></div> -->
+    </div>
+</body>
+
+<script>
+    let btn1 = document.querySelector('.btn1');
+    btn1.addEventListener('click', function () {
+        alert('btn1');
+    });
+</script>
+
+</html>
