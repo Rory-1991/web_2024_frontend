@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* id 選擇器非到必要不用 */
+        /* #red {
+            background-color: red;
+        } */
+
+
+        .liu~div {
+            background-color: lightgreen;
+        }
+
+        .liu+div {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<h2>ID 選擇器（#id）權重100 > Class 選擇器權重10（.class） > 元素選擇器權重1（如 div, p）</h2>
+
+<body>
+    <div class="liu">
+        劉備
+    </div>
+
+    <div class="guan" id="red">
+        關羽
+    </div>
+
+    <div class="chang">
+        張飛
+    </div>
+</body>
+
+</html>

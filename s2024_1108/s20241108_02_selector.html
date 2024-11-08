@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 後代的下一層 */
+        div>p {
+            background-color: lightblue;
+        }
+
+        /* 後代選擇全部 */
+        div p {
+            background-color: lightpink;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>CSS Selector</h3>
+    <hr>
+    <h3>Combinators selectors div p</h3>
+
+    <div>
+        <p>p1 Lorem ipsum dolor sit amet.</p>
+        <p>p2 Lorem ipsum dolor sit amet.</p>
+        <main>
+            <p>
+                p3 Lorem ipsum dolor sit amet.
+            </p>
+        </main>
+        <p>p4 Lorem ipsum dolor sit amet.</p>
+
+    </div>
+
+    <p>p5 Lorem ipsum dolor sit amet.</p>
+    <p>p6 Lorem ipsum dolor sit amet.</p>
+
+
+
+</body>
+
+</html>
