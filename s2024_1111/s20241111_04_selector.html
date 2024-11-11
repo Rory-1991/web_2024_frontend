@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+
+        tr,
+        td {
+            border: 1px solid black;
+            text-align: center;
+            height: 30vh;
+            font-size: 30px;
+        }
+
+        .total {
+            color: red;
+        }
+
+        .total::before {
+            content: "NT $";
+        }
+
+        .total::after {
+            content: "元";
+        }
+    </style>
+</head>
+
+<body>
+    <h3>
+        總共金額 NT 500 元
+    </h3>
+
+    <table>
+        <tr>
+            <td width="30%">
+                100
+            </td>
+            <td width="30%">
+                5
+            </td>
+            <td class="total">
+                500
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
