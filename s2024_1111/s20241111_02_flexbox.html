@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            /* width: 100%; */
+
+            max-width: 1100px;
+            /* height: 100vh; */
+            background-color: lightblue;
+            margin: auto;
+
+
+            flex-direction: row;
+            flex-wrap: wrap;
+            text-align: center;
+            justify-content: space-evenly;
+
+        }
+
+        .item {
+            /* margin-left: 20px; */
+            margin-top: 20px;
+            padding-top: 12vh;
+            width: 300px;
+            height: 30vh;
+            /* 使用固定的 300px 寬度和 30vh 高度，這使得每個項目在視口中尺寸固定。 */
+            background-color: #ccc;
+            /* background-image: url('../s20241104/images/bg.png'); */
+        }
+
+        .item-hidden {
+            opacity: 0.5;
+            padding-top: 0;
+            width: 300px;
+            height: 30vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+
+        <div class="item ">7</div>
+        <div class="item item-hidden">&nbsp;</div>
+        <div class="item item-hidden">&nbsp;</div>
+
+    </div>
+</body>
+
+</html>
