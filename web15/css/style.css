@@ -8,37 +8,114 @@ header {
     height: 65px;
     background-color: lightblue;
     margin: auto;
+    border: 1px solid black;
+    border-bottom: 0;
 }
 
 .top {
     display: flex;
+    justify-content: center
 }
 
+/* container */
 .container {
     display: flex;
     width: 1024px;
-    height: calc(768px - 65px - 25px);
+    height: calc(768px - 65px - 20px);
     /* 減號前後都要空格 */
     background-color: lightyellow;
     margin: auto;
 }
 
+/* container-left */
 aside {
+    display: flex;
+    flex-direction: column;
+
     width: 215px;
     height: calc(768px - 65px - 20px);
     /* 減號前後都要空格 */
-    background-color: rgb(94, 94, 46);
+    background-color: rgb(221, 221, 148);
 }
 
+.aside-header {
+    width: 100%;
+    /* flex-basis: 100px; */
+    /* height: calc(100% - 25px); */
+    /* flex-direction 主軸長度 item method */
+    flex-basis: calc(100% - 25px);
+    background-color: lightpink;
+    border: 1px solid black;
+    border-right: 0;
+}
+
+.club {
+    font-size: 16px;
+    background-image: url('/web15/images/menu1.png');
+
+
+}
+
+.club :hover {
+    background-image: url('/web15/images/menu2.png');
+}
+
+.aside-footer {
+    width: 100%;
+    flex-basis: 25px;
+    background-color: lightblue;
+    border: 1px solid black;
+    border-top: 0;
+    border-right: 0;
+}
+
+/* container-right */
 main {
-    width: 1024px;
-    height: calc(768px - 65px - 25px - 29px);
+    width: calc(1024px - 215px);
+    height: calc(768px - 65px - 20px);
     background-color: rgb(70, 212, 115);
 }
+
+.main-header {
+    width: 100%;
+    height: 29px;
+    background-color: rgb(170, 185, 190);
+
+    border: 1px solid black;
+    border-bottom: 0;
+
+}
+
+.marquee-text {
+    font-family: "BiauKai", "標楷體", serif;
+    /* 字型為標楷體 */
+    font-size: 24px;
+    /* 字體大小為24px */
+    color: #0000FF;
+    /* 文字顏色為藍色 */
+    white-space: nowrap;
+    /* 文字不換行 */
+    position: absolute;
+    /* 絕對定位 */
+    animation: marquee 10s linear infinite;
+    /* 設定跑馬燈動畫 */
+}
+
+.main-footer {
+    width: 100%;
+    height: calc(100% - 29px);
+    background-color: rgb(206, 249, 127);
+    border: 1px solid black;
+}
+
 
 footer {
     width: 1024px;
     height: 20px;
     background-color: lightcoral;
     margin: auto;
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    border-top: 0;
 }
