@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+header {
+    width: 1024px;
+    height: 65px;
+    background-color: lightblue;
+    margin: auto;
+}
+
+.top {
+    display: flex;
+}
+
+.container {
+    display: flex;
+    width: 1024px;
+    height: calc(768px - 65px - 25px);
+    /* 減號前後都要空格 */
+    background-color: lightyellow;
+    margin: auto;
+}
+
+aside {
+    width: 215px;
+    height: calc(768px - 65px - 20px);
+    /* 減號前後都要空格 */
+    background-color: rgb(94, 94, 46);
+}
+
+main {
+    width: 1024px;
+    height: calc(768px - 65px - 25px - 29px);
+    background-color: rgb(70, 212, 115);
+}
+
+footer {
+    width: 1024px;
+    height: 20px;
+    background-color: lightcoral;
+    margin: auto;
+}
