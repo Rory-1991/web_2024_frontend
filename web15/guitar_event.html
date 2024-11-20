@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-image: url('./images/0101.jpg');
+        }
+
+        /* 吉他社近期活動公告 */
+        header {
+            font-family: '標楷體';
+            font-size: 18px;
+            font-weight: bold;
+            color: #FF0000;
+            text-align: center;
+        }
+
+        /* nav */
+        nav {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        .container-content {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            /* 讓top垂直置中 */
+
+            margin-top: 10px;
+            font-family: '標楷體';
+            font-size: 16px;
+            color: #FF0000;
+            text-align: left;
+        }
+
+        /* 近期活動四個字 */
+        .event-title {
+            width: 100%;
+            color: #800000;
+        }
+
+        /* 第二層導覽列點日期跳區塊 */
+        .my-date {
+            width: 70%;
+        }
+
+        /* 回到最上面 */
+        .top {
+            width: 30%;
+        }
+
+        /* 四個活動文字不同顏色 */
+        .event1 {
+            color: #0000FF;
+        }
+
+        .event2 {
+            color: #FF0000;
+        }
+
+        .event3 {
+            color: #00FF00;
+        }
+
+        .event4 {
+            color: #000000;
+        }
+    </style>
+</head>
+
+<body>
+    <header>吉他社近期活動公告</header>
+
+    <nav>
+
+        <div class="nav-item">
+            <a href="./index.html" target="_top">回社團介紹首頁 </a>
+            <!-- 沒放top會回到最上層 -->
+        </div>
+        <div class="nav-item">
+            <a href="./guitar_history.html">吉他社社史 </a>
+        </div>
+        <div class="nav-item">
+            <a href="./guitar_learning.html">吉他社教學內容 </a>
+        </div>
+
+    </nav>
+
+    <!-- 第二層日期導覽列 -->
+    <nav>
+        <div><a href="#day1">九月十六日</a></div>
+        <div><a href="#day2">十月三十一日</a></div>
+        <div><a href="#day3">十二月二十五日</a></div>
+        <div><a href="#day4">元月一日</a></div>
+    </nav>
+
+    <div class="container-content"><br>
+        <!-- 100% -->
+
+        <div class="event-title">近期活動</div>
+        <!-- 70% -->
+
+
+        <div class="event1 my-date" id="day1">
+            日期：九月十六日<br>
+            活動主題：社員大會<br>
+            地點：吉他社教室<br>
+            主持人：王小明<br>
+            活動內容：<br>
+            1.入社歡迎茶會<br>
+            2.指導老師致詞<br>
+            3.社長致詞<br>
+            4.社規介紹以及教學內容之簡介<br>
+            <br>
+        </div>
+
+        <!-- 回到最上層 -->
+        <div class="top">
+            <a href="#">TOP</a>
+        </div>
+        <!-- 30% -->
+
+        <div class="event2 my-date" id="day2">
+            日期：十月三十一日<br>
+            活動主題：校內吉他表演<br>
+            地點：學校大禮堂<br>
+            領隊：王小明社長<br>
+            表演內容：以吉他演奏演唱民歌，曲目如下<br>
+            1.海浬來的沙<br>
+            2.微風往事<br>
+            3.七月涼山<br>
+            4.明天會更好(大合唱)<br>
+            <br>
+        </div>
+
+        <div class="top">
+            <a href="#">TOP</a>
+        </div>
+
+        <div class="event3 my-date" id="day3">
+            日期：十二月二十五日<br>
+            活動主題：校內吉他比賽<br>
+            地點：學校大禮堂<br>
+            主辦單位：教務處<br>
+            吉他比賽規則：<br>
+            1.凡我玉山高中之學生<br>
+            2.參賽內容可為民歌演唱以及任何純吉他演奏方式如：古典吉他、爵士吉他演奏<br>
+            3.參賽者必須自備樂器<br>
+            <br>
+        </div>
+
+        <div class="top">
+            <a href="#">TOP</a>
+        </div>
+
+        <div class="event4 my-date" id="day4">
+            日期：元月一日<br>
+            活動主題：全國吉他(高中組)演奏比賽<br>
+            地點：台北市社教館<br>
+            主辦單位：教育部<br>
+            比賽規則：<br>
+            1.由學校推舉優秀同學參予<br>
+            2.除推舉參加外，其餘有興趣參賽的同學，請自行報名參加<br>
+            3.參賽規則請參考比賽細則<br>
+        </div>
+
+        <div class="top">
+            <a href="#">TOP</a>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

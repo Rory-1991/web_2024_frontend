@@ -47,6 +47,50 @@ aside {
     /* background-color: lightpink; */
     border: 1px solid black;
     border-right: 0;
+    /* 以下針對字體 */
+    font-family: '標楷體';
+    font-weight: 500;
+    font-size: 24px;
+    text-align: center;
+    padding: 10px;
+    color: #FF00FF;
+}
+
+.menu {
+    display: flex;
+    /* 社團用flex呈現 */
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    /* 吉他社盒子與社團介紹底線間的間隔 */
+}
+
+.menu-item {
+    /* 社團名稱字體 */
+    margin-top: 5px;
+    /* 每個社團格子間的間隔 */
+    background-color: lightblue;
+    width: 200px;
+    height: 35px;
+    background-image: url('../images/menu1.png');
+    border-radius: 20px;
+    padding-top: 10px;
+    /* 字在格子裡的高度 */
+    font-size: 16px;
+    color: black;
+
+}
+
+.menu-item:hover {
+    background-image: url('../images/menu2.png');
+}
+
+#aside-title {
+    border-bottom: 1px solid rgb(0, 0, 0);
+    /* 社團介紹下的底線(用下框線假裝) */
+    /* background-color: lightblue; */
+    padding: 5px;
+    /* 社團介紹與底線之間的距離 */
 }
 
 .aside-footer {
@@ -56,6 +100,14 @@ aside {
     border: 1px solid black;
     border-top: 0;
     border-right: 0;
+    /* 以下針對字體 "最近更新日期..."*/
+    font-size: 16px;
+    font-family: '標楷體';
+    color: #000;
+    text-align: center;
+
+    padding-top: 2px;
+    /* 字離上面線的距離 */
 
 }
 
@@ -83,6 +135,12 @@ main {
     height: calc(100% - 29px);
     /* background-color: cadetblue; */
     border: 1px solid black;
+}
+
+iframe {
+    width: 100%;
+    background-color: lightblue;
+    height: 100%;
 }
 
 /* footer */
