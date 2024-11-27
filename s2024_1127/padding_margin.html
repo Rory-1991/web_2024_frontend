@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .box-with-padding-and-margin {
+            padding: 20px;
+            margin: 25px;
+            background-color: lightgreen;
+            border: 1px solid black;
+        }
+
+        .container {
+            background-color: lightgray;
+            padding: 25px;
+            margin: 15px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">中間這裡是box的margin+container的margin同時存在 25+25=50 並不會重疊(加了字會額外撐出一行)
+        <div class="box-with-padding-and-margin">我是同時有內邊距和外邊距的區塊</div>
+    </div>
+
+</body>
+
+</html>
