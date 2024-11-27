@@ -18,7 +18,7 @@ header {
 
 }
 
-/* container */
+/* container 全頁 */
 .container {
     display: flex;
     width: 1024px;
@@ -29,7 +29,7 @@ header {
     margin: auto;
 }
 
-/* container-left */
+/* container-left  左邊區塊 上加下*/
 aside {
     width: 215px;
     height: calc(768px - 65px - 20px);
@@ -39,7 +39,7 @@ aside {
     flex-direction: column;
 }
 
-/* 社團介紹的整個大區塊 */
+/* 社團介紹的整個大區塊 左上 */
 .aside-header {
     width: 100%;
     /* flex-basis: 100px; */
@@ -56,6 +56,14 @@ aside {
     text-align: center;
     padding: 10px;
     color: #FF00FF;
+}
+
+#aside-title {
+    border-bottom: 1px solid rgb(0, 0, 0);
+    /* 社團介紹下的底線(用下框線假裝) */
+    /* background-color: lightblue; */
+    padding: 5px;
+    /* 社團介紹與底線之間的距離 */
 }
 
 /* 社團選單區塊 */
@@ -89,15 +97,7 @@ aside {
     background-image: url('../images/menu2.png');
 }
 
-#aside-title {
-    border-bottom: 1px solid rgb(0, 0, 0);
-    /* 社團介紹下的底線(用下框線假裝) */
-    /* background-color: lightblue; */
-    padding: 5px;
-    /* 社團介紹與底線之間的距離 */
-}
-
-/* 最近更新日期 */
+/* 最近更新日期  左下 */
 .aside-footer {
     width: 100%;
     flex-basis: 25px;
@@ -117,7 +117,7 @@ aside {
 }
 
 
-/* container-right */
+/* container-right 右邊區塊 上加下 */
 main {
     width: calc(1024px - 215px);
     height: calc(768px - 65px - 20px);
@@ -136,7 +136,7 @@ main {
     color: #0000FF;
 }
 
-/* 主要網頁顯示內容 */
+/* 主要顯示內容區塊 */
 .main-footer {
     width: 100%;
     height: calc(100% - 29px);
@@ -144,11 +144,13 @@ main {
     border: 1px solid black;
 }
 
+/* 鑲嵌網頁 */
 iframe {
     width: 100%;
-    background-color: lightblue;
+    /* background-color: lightblue; */
     height: 100%;
 }
+
 
 /* footer 網頁設計及維護：XX○○○ */
 footer {
