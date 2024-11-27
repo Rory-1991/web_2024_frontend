@@ -2,23 +2,32 @@
 * {
     box-sizing: border-box;
     overflow: hidden;
+}
 
+/* 取代所有邊框 */
+body>* {
+    border: solid 1px #7777;
 }
 
 /* header 放合成圖標題區塊 */
 header {
     width: 1024px;
     height: 65px;
+
+    /* 邊框 */
     /* background-color: lightblue; */
+    /* border: 1px solid black;
+    border-bottom: 0; */
+
+    padding: 2px;
     margin: auto;
-    border: 1px solid black;
-    border-bottom: 0;
+    /* 適用於塊級元素 使 header 這個區塊置中 */
     text-align: center;
-    padding: 5px;
+    /* 適用於行內塊級元素 img為行內塊級元素 使圖片置中 */
 
 }
 
-/* container 全頁 */
+/* container 頭尾不含 */
 .container {
     display: flex;
     width: 1024px;
@@ -47,8 +56,11 @@ aside {
     /* flex-direction 主軸長度 item method */
     flex-basis: calc(100% - 25px);
     /* background-color: lightpink; */
-    border: 1px solid black;
-    border-right: 0;
+
+    /* 邊框 */
+    /* border: 1px solid black;
+    border-right: 0; */
+
     /* 以下針對"社團介紹"字體 */
     font-family: '標楷體';
     font-weight: 500;
@@ -102,9 +114,12 @@ aside {
     width: 100%;
     flex-basis: 25px;
     /* background-color: lightblue; */
-    border: 1px solid black;
+
+    /* 邊框 */
+    /* border: 1px solid black;
     border-top: 0;
-    border-right: 0;
+    border-right: 0; */
+
     /* 以下針對字體 "最近更新日期..."*/
     font-size: 16px;
     font-family: '標楷體';
@@ -129,8 +144,11 @@ main {
     width: 100%;
     height: 29px;
     /* background-color: red; */
-    border: 1px solid black;
-    border-bottom: 0;
+
+    /* 邊框 */
+    /* border: 1px solid black;
+    border-bottom: 0; */
+
     font-size: 24px;
     font-family: '標楷體';
     color: #0000FF;
@@ -141,7 +159,9 @@ main {
     width: 100%;
     height: calc(100% - 29px);
     /* background-color: cadetblue; */
-    border: 1px solid black;
+
+    /* 邊框 */
+    /* border: 1px solid black; */
 }
 
 /* 鑲嵌網頁 */
@@ -158,8 +178,11 @@ footer {
     height: 20px;
     /* background-color: lightcoral; */
     margin: auto;
-    border: 1px solid black;
-    border-top: 0;
+
+    /* 邊框 */
+    /* border: 1px solid black;
+    border-top: 0; */
+
     /* 以下針對文字 */
     font-family: '標楷體';
     color: #000;
