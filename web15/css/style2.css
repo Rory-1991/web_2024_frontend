@@ -1,10 +1,11 @@
+/* 全局 */
 * {
     box-sizing: border-box;
     overflow: hidden;
 
 }
 
-/* header */
+/* header 放合成圖標題區塊 */
 header {
     width: 1024px;
     height: 65px;
@@ -38,6 +39,7 @@ aside {
     flex-direction: column;
 }
 
+/* 社團介紹的整個大區塊 */
 .aside-header {
     width: 100%;
     /* flex-basis: 100px; */
@@ -47,7 +49,7 @@ aside {
     /* background-color: lightpink; */
     border: 1px solid black;
     border-right: 0;
-    /* 以下針對字體 */
+    /* 以下針對"社團介紹"字體 */
     font-family: '標楷體';
     font-weight: 500;
     font-size: 24px;
@@ -56,6 +58,7 @@ aside {
     color: #FF00FF;
 }
 
+/* 社團選單區塊 */
 .menu {
     display: flex;
     /* 社團用flex呈現 */
@@ -65,6 +68,7 @@ aside {
     /* 吉他社盒子與社團介紹底線間的間隔 */
 }
 
+/* 每個社團自己的盒子 */
 .menu-item {
     /* 社團名稱字體 */
     margin-top: 5px;
@@ -93,6 +97,7 @@ aside {
     /* 社團介紹與底線之間的距離 */
 }
 
+/* 最近更新日期 */
 .aside-footer {
     width: 100%;
     flex-basis: 25px;
@@ -119,6 +124,7 @@ main {
     /* background-color: aquamarine;     */
 }
 
+/* 跑馬燈區 */
 .main-header {
     width: 100%;
     height: 29px;
@@ -130,6 +136,7 @@ main {
     color: #0000FF;
 }
 
+/* 主要網頁顯示內容 */
 .main-footer {
     width: 100%;
     height: calc(100% - 29px);
@@ -143,7 +150,7 @@ iframe {
     height: 100%;
 }
 
-/* footer */
+/* footer 網頁設計及維護：XX○○○ */
 footer {
     width: 1024px;
     height: 20px;
@@ -151,5 +158,9 @@ footer {
     margin: auto;
     border: 1px solid black;
     border-top: 0;
+    /* 以下針對文字 */
+    font-family: '標楷體';
+    color: #000;
     text-align: center;
+    font-size: 16px;
 }
