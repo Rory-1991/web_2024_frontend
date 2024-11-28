@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Time</title>
+    <style>
+        body {
+            background-color: antiquewhite;
+        }
+
+        .title {
+            margin-top: 50px;
+            font-size: 60px;
+            text-align: center;
+            color: brown;
+            font-weight: bold;
+
+        }
+
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            /* background-color: lightpink; */
+            margin: auto;
+            display: flex;
+            flex: auto;
+
+        }
+
+
+
+        .item1 {
+            width: 400px;
+            height: 500px;
+            background-color: rgb(201, 139, 115);
+            margin-right: 100px;
+            margin-top: 100px;
+            margin-left: 120px;
+            border-radius: 50px;
+
+        }
+
+        .pic1 {
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+
+        .button1 {
+            width: 160px;
+            height: 50px;
+            background-color: rgb(142, 82, 58);
+            margin: auto;
+            margin-top: 50px;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+
+        .item2 {
+            width: 400px;
+            height: 500px;
+            background-color: rgb(201, 139, 115);
+            margin-right: 100px;
+            margin-top: 100px;
+            margin-left: 100px;
+            border-radius: 50px;
+
+        }
+
+        .pic2 {
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+
+        .button2 {
+            width: 160px;
+            height: 50px;
+            background-color: rgb(142, 82, 58);
+            margin: auto;
+            margin-top: 50px;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+
+        .item3 {
+            width: 400px;
+            height: 500px;
+            background-color: rgb(201, 139, 115);
+            margin-right: 100px;
+            margin-top: 100px;
+            margin-left: 100px;
+            border-radius: 50px;
+
+        }
+
+        .pic3 {
+
+            margin-top: 50px;
+            margin-left: 50px;
+        }
+
+        .button3 {
+            width: 160px;
+            height: 50px;
+            background-color: rgb(142, 82, 58);
+            margin: auto;
+            margin-top: 50px;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="title">
+        Adventure Time
+    </div>
+
+
+    <div class="container">
+        <div class="item1">
+            <div class="pic1">
+                <img src="./pic/01.jpg" width="300px" height="300px" alt="">
+            </div>
+            <div id="button1" class="button1">
+                click！
+            </div>
+        </div>
+        <div class="item2">
+            <div class="pic2">
+                <img src="./pic/02.jpg" width="300px" height="300px" alt="">
+            </div>
+            <div id="button2" class="button2">
+                click！
+            </div>
+        </div>
+        <div class="item3">
+            <div class="pic3">
+                <img src="./pic/03.jpg" width="300px" height="300px" alt="">
+            </div>
+            <div id="button3" class="button3">
+                click！
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+
+
+    </footer>
+
+    <script>
+        // 1.綁定
+        let button1 = document.getElementById('button1')
+        let button2 = document.getElementById('button2')
+        let button3 = document.getElementById('button3')
+
+        // 事件
+        button1.addEventListener('click', function () {
+            // 更改按鈕文字
+            if (button1.textContent === "Snowboarding") {
+                button1.textContent = "$2500";  // 改為$1000
+            } else {
+                button1.textContent = "Snowboarding";  // 改回Snowboarding
+            }
+        });
+
+        button2.addEventListener('click', function () {
+            // 更改按鈕文字
+            if (button2.textContent === "Camping") {
+                button2.textContent = "$3000";
+            } else {
+                button2.textContent = "Camping";
+            }
+        });
+
+        button3.addEventListener('click', function () {
+            // 更改按鈕文字
+            if (button3.textContent === "Space adventure") {
+                button3.textContent = "$100,000";
+            } else {
+                button3.textContent = "Space adventure";
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>

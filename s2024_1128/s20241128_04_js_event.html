@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 90%;
+            /* height: 90vh; */
+            /* background-color: lightblue; */
+            margin: auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+
+        }
+
+        .item {
+            width: 300px;
+            height: 400px;
+            /* background-color: lightpink; */
+            text-align: center;
+            border: 1px solid black;
+            border-radius: 20px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        img {
+            border-radius: 20px;
+            width: 60%;
+        }
+
+        .text-red {
+            color: red;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item">
+            <h3>Lorem ipsum dolor</h3>
+            <img src="https://picsum.photos/id/237/200/160" alt="" srcset="">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus inventore reprehenderit eos ex, maxime
+                sequi.
+            </p>
+            <p id="price1">
+                1999
+            </p>
+            <button type="button" id="btn1">
+                優惠價格
+            </button>
+        </div>
+        <div class="item">
+            <h3>Lorem ipsum dolor</h3>
+            <img src="https://picsum.photos/id/237/200/160" alt="" srcset="">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus inventore reprehenderit eos ex, maxime
+                sequi.
+            </p>
+            <p id="price2">
+                3999
+            </p>
+            <button type="button" id="btn2">
+                優惠價格
+            </button>
+        </div>
+        <div class="item">
+            <h3>Lorem ipsum dolor</h3>
+            <img src="https://picsum.photos/id/237/200/160" alt="" srcset="">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus inventore reprehenderit eos ex, maxime
+                sequi.
+            </p>
+            <p id="price3">
+                9999
+            </p>
+            <button type="button" id="btn3">
+                優惠價格
+            </button>
+        </div>
+    </div>
+    <input type="text" id="myInput" value="555">
+    <script>
+        // 1.bind
+        let btn1 = document.getElementById('btn1');
+        let btn2 = document.getElementById('btn2');
+        let btn3 = document.getElementById('btn3');
+        let price1 = document.getElementById('price1');
+        let price2 = document.getElementById('price2');
+        let price3 = document.getElementById('price3');
+        let myInput = document.getElementById('myInput');
+
+        // console.log('btn1', btn1);
+        // console.log('btn2', btn2);
+        // console.log('btn3', btn3);
+
+        // 2.action
+        // innerText / innerValue / Value
+
+        btn1.addEventListener('click', function () {
+            console.log('btn1 click ok');
+            price1.innerText = '1500';
+            price1.setAttribute('class', 'text-red');
+            btn1.style.display = "none";
+        });
+
+        btn2.addEventListener('click', function () {
+            console.log('btn2 click ok');
+            price2.innerText = '2000';
+            price2.setAttribute('class', 'text-red');
+            btn2.innerText = 'test';
+            myInput.setAttribute('value', '55688');
+
+        });
+
+        btn3.addEventListener('click', function () {
+            console.log('btn3 click ok');
+            price3.innerText = '3000';
+            price3.setAttribute('class', 'text-red');
+            btn3.style.display = "none";
+        });
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>泰山旅遊</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #caf1f785;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-evenly;
+            width: 60%;
+        }
+
+        .box {
+            width: 300px;
+            height: 400px;
+            background-color: #ffffff3f;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* 添加過渡效果 */
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+            /* 滑鼠懸停時讓box浮起 */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            /* 添加陰影效果 */
+        }
+
+        .box img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .btn {
+            background-color: #3d426e;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: rgb(169, 151, 187);
+        }
+
+        .price-text {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        /* 原價 */
+        .original-price {
+            color: red;
+            text-decoration: line-through;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="box">
+            <img src="https://www.fubon.com/insurance/blog/uploads/travel-island-02.jpg" alt="Product 1">
+            <p class="price-text" id="price1">Luxury Island</p>
+            <button class="btn" id="btn1">$3800</button>
+        </div>
+
+        <div class="box">
+            <img src="https://www.bring-you.info/wp-content/uploads/2021/12/MALDIVES-Water-Villas-with-bridge.jpg"
+                alt="Product 2">
+            <p class="price-text" id="price2">Overwater Villas</p>
+            <button class="btn" id="btn2">$7499</button>
+        </div>
+
+        <div class="box">
+            <img src="https://tluxe-aws.hmgcdn.com/public/article/2017/atl_20200317171810_117.jpg" alt="Product 3">
+            <p class="price-text" id="price3">Private Resort</p>
+            <button class="btn" id="btn3">$10800</button>
+        </div>
+    </div>
+
+    <script>
+
+        let button1 = document.getElementById('btn1');
+        let button2 = document.getElementById('btn2');
+        let button3 = document.getElementById('btn3');
+
+        let price1 = document.getElementById('price1');
+        let price2 = document.getElementById('price2');
+        let price3 = document.getElementById('price3');
+
+        const originalPrice1 = '$3800';
+        const originalPrice2 = '$7499';
+        const originalPrice3 = '$10800';
+
+        const newPrice1 = '$1600';
+        const newPrice2 = '$3999';
+        const newPrice3 = '$8888';
+
+        function togglePrice(button, priceElement, originalPrice, newPrice) {
+
+            if (button.textContent === newPrice) {
+
+                button.textContent = originalPrice;
+                let originalPriceSpan = priceElement.querySelector('.original-price');
+                if (originalPriceSpan) {
+                    priceElement.removeChild(originalPriceSpan);
+                }
+            } else {
+
+                button.textContent = newPrice;
+                let originalPriceSpan = document.createElement('span');
+                originalPriceSpan.textContent = originalPrice;
+                originalPriceSpan.classList.add('original-price');
+                priceElement.appendChild(originalPriceSpan);
+            }
+        }
+
+        button1.addEventListener('click', function () {
+            togglePrice(button1, price1, originalPrice1, newPrice1);
+        });
+
+        button2.addEventListener('click', function () {
+            togglePrice(button2, price2, originalPrice2, newPrice2);
+        });
+
+        button3.addEventListener('click', function () {
+            togglePrice(button3, price3, originalPrice3, newPrice3);
+        });
+    </script>
+
+</body>
+
+</html>
