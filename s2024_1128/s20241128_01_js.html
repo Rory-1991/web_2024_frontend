@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        console.log('Hello');
+        let name = 'Rory'
+
+        console.log(`Hi, I'm ${name}`);
+        // or
+        console.log('Hi, I\'m ' + name);
+        // 反引號 (`)：支持字串插值，可以直接在字串中插入變數或表達式，語法更簡潔。
+        // 單引號 ('')：只能用來包裹字串，插入變數時需要用 + 來拼接。
+
+        const mobile = '0911-111-111';
+        // mobile = '0922-222-222';
+        // const 已被宣告的常數不能變更
+        console.log(`mobile : ${mobile}`);
+
+
+        // js array
+        myArr = [1, 2, 3];
+
+        // 以下格式在JS中不存在
+        // assocArr = [
+        //     's1' : 'test'
+        // ];
+        console.log('myArr', myArr);
+
+
+        myObj = {
+            's1': 'amy',
+            's2': 'bob',
+            's3': 'cat'
+        }
+        console.log('myObj', myObj);
+
+    </script>
+</body>
+
+</html>
