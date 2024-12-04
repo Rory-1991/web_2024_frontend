@@ -7,6 +7,11 @@
     <title>Document</title>
 </head>
 
+<!-- 為什麼使用 $(document).ready()？
+這樣可以保證當你在頁面中執行 JavaScript 或 jQuery 代碼時，
+所有的 HTML 元素都已經被加載完成。這樣可以避免在 HTML 元素尚未加載完成時就去操作它們，
+從而引發錯誤或異常行為。 -->
+
 <body>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
@@ -15,10 +20,26 @@
     <script>
         $(document).ready(function () {
 
-
+            // 在這裡寫你要執行的 JavaScript 或 jQuery 代碼
+            console.log("Document is ready!");
 
         });
     </script>
+
+    <script>
+        //  jQuery 版本
+
+        $(function () {
+            // 這裡的代碼與上面一樣
+            console.log("Document is ready!");
+        });
+
+
+    </script>
+
+    <!-- $(function() {...}) 等同於 $(document).ready(function() {...}) -->
+    <!-- $(document).ready() 用於確保頁面的 HTML 結構已經完全加載，這樣就可以安全地執行 JavaScript 或 jQuery 代碼來操作這些元素。 -->
+
 </body>
 
 </html>

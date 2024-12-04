@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加總計算器</title>
+    <style>
+        /* 設置整體頁面的佈局 */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fffefe;
+        }
+
+        /* 三個藍色區塊容器，橫向排列 */
+        .container {
+            display: flex;
+            justify-content: space-around;
+            /* 藍色區塊之間有空隙 */
+            width: 80%;
+            /* 調整寬度 */
+            max-width: 1000px;
+        }
+
+        /* 藍色區塊樣式 */
+        .box {
+            width: 30%;
+            /* 每個區塊佔容器寬度的 30% */
+            height: 150px;
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            /* 水平居中 */
+            align-items: center;
+            /* 垂直居中 */
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            /* border-radius: 8px; */
+        }
+
+        /* 輸入框區塊樣式 */
+        .input-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            /* height: 100%;
+            padding: 20px; */
+        }
+
+        .input-box input {
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+
+        }
+
+        .input-box button {
+            padding: 10px;
+            font-size: 16px;
+            /* background-color: #6d79a9;
+            color: white; */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 藍色區塊1：輸入區 -->
+        <div class="box input-box">
+            <div>
+                <label for="num1"></label>
+                <input type="number" id="num1">
+                <label for="num2"></label>
+                <input type="number" id="num2">
+
+                <button onclick="calculateSum()">加總</button>
+
+            </div>
+        </div>
+
+        <!-- 藍色區塊2：顯示加總 -->
+        <div class="box">
+            <div id="result">sum：</div>
+        </div>
+
+        <!-- 藍色區塊3：顯示加總乘以10的結果 -->
+        <div class="box">
+            <div id="resultTimes10">sum*10：</div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript 函數：計算加總並顯示兩個結果
+        function calculateSum() {
+            // 取得輸入框的數值
+            let num1 = parseFloat(document.getElementById("num1").value);
+            let num2 = parseFloat(document.getElementById("num2").value);
+
+            // 檢查是否輸入有效數字
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("請輸入有效的數字！");
+                return;
+            }
+
+            // 計算加總
+            let sum = num1 + num2;
+
+            // 計算加總乘以 10 的結果
+            let sumTimes10 = sum * 10;
+
+            // 顯示加總結果
+            document.getElementById("result").textContent = `sum：${sum}`;
+
+            // 顯示加總乘以 10 的結果
+            document.getElementById("resultTimes10").textContent = `sum*10：${sumTimes10}`;
+        }
+
+
+    </script>
+</body>
+
+</html>

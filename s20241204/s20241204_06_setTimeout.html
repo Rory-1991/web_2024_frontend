@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 80%;
+            margin: auto;
+
+        }
+
+        .box {
+            border: 2px;
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <p>
+                <input type="text" name="" id="myText">
+            </p>
+
+            <p>
+                <input type="number" name="" id="waitTime">
+            </p>
+
+            <p>
+                <button type="button" id="myBtn">myBtn</button>
+            </p>
+            <p>
+                <span id="box1Span"></span>
+            </p>
+        </div>
+        <div class="box">
+            Say ?
+            <p>
+                <span id="box2Span"></span>
+            </p>
+        </div>
+        <!-- <div class="box">
+            sum x 10 = ?
+            <p>
+                <span id="box3Span"></span>
+            </p>
+        </div> -->
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            // 1.bind
+            const myText = $('#myText');
+            const waitTime = $('#waitTime');
+            const myBtn = $('#myBtn');
+            const box1Span = $('#box1Span');
+            const box2Span = $('#box2Span');
+
+            // 2.action
+            myBtn.click(function () {
+                console.log('myBtn ok ');
+
+                let getTextValue = myText.val();
+                let getTimeValue = Number(waitTime.val()) * 1000;
+                console.log('getTextValue', getTextValue);
+                console.log('getTextValue typeof', typeof (getTextValue));
+                console.log('getTimeValue', getTimeValue);
+                console.log('getTimeValue typeof', typeof (getTimeValue));
+
+                // 一次                
+                // setTimeout(function () {
+                //     console.log(`my text is ${getTextValue}`);
+                //     box1Span.text(getTextValue);
+                //     box2Span.text(getTextValue);
+
+                // }, getTimeValue)
+
+                // 無限
+                setInterval(function () {
+                    console.log(`my text is ${getTextValue}`);
+                    box1Span.text(getTextValue);
+                    box2Span.text(getTextValue);
+
+                    setTimeout(function () {
+                        box1Span.text('');
+                        box2Span.text('');
+                    }, 500);
+                }, getTimeValue);
+
+
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>

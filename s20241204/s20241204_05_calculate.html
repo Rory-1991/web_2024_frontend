@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 80%;
+            margin: auto;
+
+        }
+
+        .box {
+            border: 2px;
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <p>
+                <input type="number" name="" id="num1">
+            </p>
+
+            <p>
+                <input type="number" name="" id="num2">
+            </p>
+
+            <p>
+                <input type="text" name="" id="opt">
+            </p>
+
+            <p>
+                <button type="button" id="myBtn">myBtn</button>
+            </p>
+            <p>
+                <span id="box1Span"></span>
+            </p>
+        </div>
+        <div class="box">
+            sum = ?
+            <p>
+                <span id="box2Span"></span>
+            </p>
+        </div>
+        <div class="box">
+            sum x 10 = ?
+            <p>
+                <span id="box3Span"></span>
+            </p>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+
+            /*
+            * sumFun 加總
+            * num1 number 第一個數字
+            * num2 number 第二個數字
+            * return sum 加總
+            */
+            function sumFun(num1, num2) {
+                let sum = num1 + num2;
+                console.log('sum', sum);
+                return sum;
+            }
+
+            function x10Fun(sum) {
+                return sum * 10;
+            }
+
+            function showResult(num1Value, num2Value, optValue, sum, x10Result) {
+                box1Span.text(`${num1Value} ${optValue} ${num2Value} = ${sum}`);
+                box2Span.text(`${num1Value} ${optValue} ${num2Value} = ${sum}`);
+                box3Span.text(`${sum} x 10 = ${x10Result}`);
+            }
+
+            // 1. bind
+            const num1 = $('#num1');
+            const num2 = $('#num2');
+            const opt = $('#opt');
+            const myBtn = $('#myBtn');
+            const box1Span = $('#box1Span');
+            const box2Span = $('#box2Span');
+            const box3Span = $('#box3Span');
+
+            // 2.action
+            myBtn.click(function (e) {
+                console.log('myBtn ok');
+
+                // 1.get num1
+                // 2.get num2
+                // 3.get opt
+                // 4.sum = num1 opt num2
+
+                // 1.get num1
+                let num1Value = Number(num1.val());
+                console.log('num1Value', num1Value);
+                console.log('num1Value typeof', typeof (num1Value));
+
+                // 2.get num2
+                let num2Value = Number(num2.val());
+                console.log('num2Value', num2Value);
+                console.log('num2Value typeof', typeof (num2Value));
+
+                // 3.get opt
+                let optValue = opt.val();
+                console.log('optValue', optValue);
+                console.log('optValue typeof', typeof (optValue));
+
+                // 4. calFun + - * /
+
+                let calResult = 0;
+                switch (optValue) {
+                    case '+':
+                        calResult = num1Value + num2Value;
+                        break;
+
+                    case '-':
+                        calResult = num1Value - num2Value;
+                        break;
+
+                    case '*':
+                        calResult = num1Value * num2Value;
+                        break;
+
+                    case '/':
+                        calResult = num1Value / num2Value;
+                        break;
+
+                    default:
+                        break;
+                }
+
+                // 5.x10Fun() 把值回傳回去給x10Result 方便下面使用
+                let x10Result = x10Fun(calResult);
+
+                // 6.show result 呼叫上面的fuction
+                showResult(num1Value, num2Value, optValue, calResult, x10Result);
+
+
+
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>
