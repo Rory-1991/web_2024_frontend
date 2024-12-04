@@ -134,6 +134,10 @@
 
                 // 4. calFun + - * /
 
+                /* 設置 calResult = 0 提供了一個安全的預設值。這樣，
+                即使 optValue 不是 +、-、* 或 / 之一（即 switch 沒有匹配到任何情況），
+                calResult 仍然會有一個合理的初始值（0） */
+
                 let calResult = 0;
                 switch (optValue) {
                     case '+':
