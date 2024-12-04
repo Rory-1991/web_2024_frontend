@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button type="button" id="myBtn">myBtn</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        function toUrl($data) {
+            window.location.href = $data;
+        }
+
+        $(document).ready(function () {
+            // 1.bind
+            const myBtn = $('#myBtn');
+            console.log('myBtn', myBtn);
+
+            // const getBtn = document.getElementById('myBtn');
+            // console.log('getBtn', getBtn);
+
+            // 2.action
+            myBtn.click(function () {
+                console.log('myBtn ok');
+                let getScreenWidth = window.screen.width;
+                console.log('getScreenWidth', getScreenWidth);
+
+                // js 轉址
+                // href 
+                // window.location.href = './s20241203_01_dom.html';
+
+                // replace method , 不能返回上一頁
+                // window.location.replace('./s20241203_01_dom.html');
+
+                // toUrl function
+                let url = './s20241203_01_dom.html';
+                toUrl(url);
+
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>
