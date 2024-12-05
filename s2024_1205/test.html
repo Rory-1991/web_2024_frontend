@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>AJAX JSON with jQuery</title>
+</head>
+
+<body>
+
+
+    <button id="sendJsonDataBtn">Send JSON Data to PHP</button>
+    <div id="result"></div>
+
+    <script>
+        $(document).ready(function () {
+            $('#sendJsonDataBtn').click(function () {
+                $.ajax({
+                    url: './test_get.php', // PHP 檔案的路徑
+                    type: 'POST',
+                    contentType: 'application/json', // 設定傳送 JSON 格式
+                    dataType: 'json', // 預期回應為 JSON 格式
+                    data: JSON.stringify({
+                        name: 'Amy',
+                        age: 25
+                    }), // 傳送 JSON 資料
+                    success: function (response) {
+                        $('#result').html('Name: ' + response.name + ', Age: ' + response.age);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('請求錯誤:', error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

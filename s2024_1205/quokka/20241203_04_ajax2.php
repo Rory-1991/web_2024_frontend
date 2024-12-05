@@ -1,8 +1,8 @@
 <?php
 $data = [
-    's1' => 'amy',
-    's2' => 'bob',
-    's3' => 'cat',
+    'name' => 'Hi! Everyone',
+    'mobile' => '✿✿✿✿✿',
+    'word' => '❆ Merry Christmas ❆',
 ];
 
 function dd($data)
@@ -12,7 +12,7 @@ function dd($data)
     echo "</pre>";
 }
 
-// dd($data); 取消才會是json可以回傳
+// dd($data);
 
 $myJSON = json_encode($data);
 

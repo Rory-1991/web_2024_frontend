@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AJAX with jQuery</title>
+
+</head>
+
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <button id="myBtn">我的價值觀</button>
+  <div id="result1"></div>
+  <div id="result2"></div>
+  <div id="result3"></div>
+
+  <script>
+    $(document).ready(function () {
+      // 1.bind
+      const myBtn = $('#myBtn');
+      const result1 = $('#result1');
+      const result2 = $('#result2');
+      const result3 = $('#result3');
+
+
+      $('#myBtn').click(function () {
+        $.ajax({
+          url: './data.php', // PHP 檔案的路徑
+          type: 'GET', // 使用 GET 請求
+          dataType: "json",
+          success: function (response) {
+            console.log('response', response);
+
+            result1.text(response.name); // 顯示 PHP 回傳的資料
+            result2.text(response.mobile); // 顯示 PHP 回傳的資料
+            result3.text(response.sentence); // 顯示 PHP 回傳的資料
+
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

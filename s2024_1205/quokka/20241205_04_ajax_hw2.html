@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myH1,
+        #myH2,
+        #myH3 {
+            text-align: center;
+            color: white;
+
+        }
+
+        #myBtn {
+            display: block;
+            margin: auto;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 20px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            width: 120px;
+            height: 50px;
+            background-color: pink;
+            color: darkred;
+            box-shadow: 0px 0px 20px 10px rgba(239, 235, 163, 0.8);
+            border: 0;
+            /* 整圈發光效果 */
+
+        }
+
+
+        .container {
+            margin: auto;
+            width: 600px;
+            height: 95vh;
+            background-image: url(https://i.pinimg.com/736x/b2/c5/05/b2c505ac96c87a54d51de3f5be8fa952.jpg);
+            background-position: center;
+            background-position-y: 20%;
+            border-radius: 50px;
+
+
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+    <div class="container">
+
+        <br>
+        <h1 id="myH1">Hello ☺</h1>
+        <h1 id="myH2">Hello ☺</h1>
+        <h1 id="myH3">Hello ☺</h1>
+
+
+        <button type="button" id="myBtn">click</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        // jqready
+        $(document).ready(function () {
+            // 1. bind
+            const myH1 = $('#myH1');
+            const myH2 = $('#myH2');
+            const myH3 = $('#myH3');
+            const myBtn = $('#myBtn');
+            // 2. action
+            myBtn.click(function (e) {
+                let url = './20241203_04_ajax2.php';
+
+
+                $.ajax({
+                    // 測試ajax =>可以先用get =>在PHP顯示沒問題的時候再換成POST
+                    type: "get",
+                    url: "./20241203_04_ajax2.php",
+                    // data: "data",
+                    dataType: "json",
+                    success: function (response) {
+                        console.log('response', response);
+                        // console.log('response typeof', typeof (response));
+
+                        myH1.text(response.name);
+                        myH2.text(response.mobile);
+                        myH3.text(response.word);
+
+                    }
+                });
+
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

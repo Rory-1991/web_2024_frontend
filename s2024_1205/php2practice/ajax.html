@@ -9,40 +9,50 @@
 
 <body>
 
-    <button type="button" id="myBtn">myBtn</button>
+    <h1 id="myH1">Life motto</h1>
 
+    <a href="./getData2.php"></a>
+
+    <button type="button" id="myBtn">我的價值觀</button>
+
+    <!-- ajax ? -->
+    <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $(document).ready(function () {
             // 1.bind
+            const myH1 = $('#myH1');
             const myBtn = $('#myBtn');
 
             // 2.action
             myBtn.click(function (e) {
-                let url = './getData.php';
+                // ajax
                 $.ajax({
                     type: "get",
-                    url: url,
+                    url: "./getData2.php",
                     // data: "data",
-                    // dataType: "dataType",
+                    dataType: "json",
                     success: function (response) {
                         console.log('response', response);
+                        // console.log('response typeof', typeof (response)); 
+                        // console.log('response.s1', response.s1);
+
+                        myH1.text(response.s1);
 
                     }
                 });
-
 
             });
 
 
 
-            // ajax
 
 
         });
     </script>
+
 </body>
 
 </html>

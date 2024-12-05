@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="myH1">計算機</h1>
+    <form action="./getSum.php" method="get" id="myForm">
+        <p>
+            <input type="number" name="num1" id="num1">
+        </p>
+        <p>
+            <input type="number" name="num2" id="num2">
+        </p>
+        <p>
+            <input type="text" name="opt" id="opt">
+        </p>
+        <p>
+            <!-- <input type="hidden" name="tmp" id="tmp"> -->
+            <input type="submit" value="submit">
+        </p>
+    </form>
+
+
+    <!-- ajax ? -->
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            // 1.bind
+            const myH1 = $('#myH1');
+            const myBtn = $('#myBtn');
+            const myForm = $('#myForm');
+            const tmp = $('#tmp');
+
+            // 2.action
+            // submit
+            // preventDefault() 中斷submit
+            // get form data ,
+            myForm.submit(function (e) {
+                // console.log('e', e);
+                // console.log('e typeof', typeof (e));
+                // submit送出禁止
+                e.preventDefault();
+                // tmp.val('hello');
+
+                // let data = myForm.serialize();
+                // form data 序列化 
+                let data = myForm.serializeArray();
+                // data.push({ name: 'num3', value: 55688 });
+
+                // console.log('data', data);
+
+
+                //do ....
+
+                //ajax
+
+                $.ajax({
+                    type: "get",
+                    url: "./getResult.php",
+                    data: data,
+                    dataType: "json",
+                    success: function (res) {
+                        console.log('res', res);
+
+                    }
+                });
+
+            });
+
+
+
+
+
+        });
+    </script>
+
+</body>
+
+</html>
