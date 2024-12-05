@@ -9,7 +9,7 @@
 
 <body>
     <h1 id="myH1">計算機</h1>
-    <form action="./getSum.php" method="get" id="myForm">
+    <form action="./getResult.php" method="get" id="myForm">
         <p>
             <input type="number" name="num1" id="num1">
         </p>
@@ -24,6 +24,8 @@
             <input type="submit" value="submit">
         </p>
     </form>
+    <div id="result"></div>
+
 
 
     <!-- ajax ? -->
@@ -66,14 +68,19 @@
                     type: "get",
                     url: "./getResult.php",
                     data: data,
-                    dataType: "json",
+                    dataType: "json",  // 確保我們期望接收到的是 JSON 格式
                     success: function (res) {
-                        console.log('res', res);
+                        console.log('res', res);  // 查看伺服器返回的結果
 
+                        // 顯示計算結果
+                        const resultText = `計算結果: ${res.num1} ${res.opt} ${res.num2} = ${res.result}`;
+                        $('#result').text(resultText);  // 將結果顯示在 id="result" 的元素中
                     }
+
                 });
 
             });
+
 
 
 
@@ -83,5 +90,13 @@
     </script>
 
 </body>
+
+<!-- 
+順序:
+1.使用者在前端網頁上輸入兩個數字和一個運算符，並按下提交。
+2.前端 JavaScript 使用 jQuery 截取表單的提交，並將表單數據透過 AJAX 發送到 PHP 檔案 (getResult.php)。
+3.PHP 根據使用者輸入的運算符對兩個數字進行計算，並將結果包裝成 JSON 格式回傳給前端。
+4.前端接收到 JSON 數據後，可以進一步處理，例如顯示計算結果。 
+-->
 
 </html>

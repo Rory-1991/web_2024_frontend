@@ -48,12 +48,17 @@
                 // 阻止表單的默認提交行為
                 /* 當你按下「提交」按鈕時，表單會正常提交，並且頁面會進行一次頁面跳轉（即重新加載）。
                 然而，使用 e.preventDefault() 可以阻止這種預設行為，讓頁面不會重新加載或跳轉。 */
+
+                /* e.preventDefault() 用來取消這個預設行為，即表單不會再進行頁面跳轉或重新加載，
+                這樣可以避免頁面重新整理，並且讓我們可以控制如何處理表單資料（例如使用 AJAX 發送資料）。 */
                 e.preventDefault();
 
                 // tmp.val('hello');    
 
                 // let data = myForm.serialize();
                 // form data 序列化 
+                /* serializeArray() 用來將表單中的所有數據轉換為一個數組，這樣方便進行 AJAX 請求並傳遞表單資料。
+                每個數組元素是包含 name 和 value 的對象，這對於在伺服器端處理資料非常方便。 */
                 let data = myForm.serializeArray();
                 // data.push({ name: 'num3', value: 55688 });
 
@@ -85,5 +90,14 @@
     </script>
 
 </body>
+
+<!-- 
+順序:
+1.使用者在前端網頁上輸入兩個數字和一個運算符，並按下提交。
+2.前端 JavaScript 使用 jQuery 截取表單的提交，並將表單數據透過 AJAX 發送到 PHP 檔案 (getResult.php)。
+3.PHP 根據使用者輸入的運算符對兩個數字進行計算，並將結果包裝成 JSON 格式回傳給前端。
+4.前端接收到 JSON 數據後，可以進一步處理，例如顯示計算結果。 
+-->
+
 
 </html>
