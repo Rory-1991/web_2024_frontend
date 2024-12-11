@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 設置頁面背景顏色 */
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            /* 居中對齊 */
+            align-items: center;
+            /* 垂直居中 */
+            height: 100vh;
+            /* 使用視窗高度 */
+            background-color: #f5f5f5;
+            /* 背景顏色 */
+            text-align: center;
+            /* 將所有文字居中 */
+        }
+
+        /* 設置標題樣式 */
+        h2 {
+            font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+            font-size: 36px;
+            color: #232121;
+            margin: 20px;
+        }
+
+        /* 設置表格樣式 */
+        table {
+            font-family: 'Arial', sans-serif;
+            border-collapse: collapse;
+            width: 80%;
+            /* 調整表格寬度 */
+            max-width: 1000px;
+            /* 最大寬度 */
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* 添加陰影效果 */
+            margin: 0 auto;
+            /* 表格水平居中 */
+        }
+
+        /* 表格中的表頭和單元格 */
+        th,
+        td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        /* 表頭的樣式 */
+        th {
+            background-color: #ffebcd;
+            /* 淺金色 */
+            color: #333;
+        }
+
+        /* 單元格的樣式 */
+        td {
+            background-color: #ffffff;
+        }
+
+        /* 設置每行的背景顏色（隔行顯示） */
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* 設置紅色顯示價格 */
+        .text-red {
+            color: rgb(255, 6, 6);
+            font-size: 30px;
+        }
+
+        /* 產品描述的樣式 */
+        p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+            margin: 5px 0;
+        }
+
+        /* 產品價格和總金額樣式 */
+        .priceClass {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        #sumResult {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        /* 輸入框樣式 */
+        .inputClass {
+            padding: 8px;
+            width: 60px;
+            text-align: center;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* 表格的最後一行總金額欄位樣式 */
+        tr:last-child td {
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #ffebcd;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h2>Garden Shop</h2>
+
+        <table>
+            <tr>
+                <th width="15%">品項</th>
+                <th width="20%">描述</th>
+                <th width="10%">數量</th>
+                <th>總金額</th>
+            </tr>
+
+            <tr>
+                <td>
+                    <img src="https://cdn01.pinkoi.com/product/sLjXeF5B/0/3/640x530.jpg" alt="" width="180px"
+                        height="160px">
+                </td>
+                <td>
+                    <p>萊姆黃金葛</p>
+                    <p class="priceClass" id="price1" data-price="260">260元</p>
+                    <p>萊姆黃金葛的葉片形狀看起來有一點點像愛心符號, 擁有色澤明亮顯眼的黃綠色葉片。</p>
+                </td>
+                <td>
+                    <input class="inputClass" type="number" name="" id="input1" value="0" max="10" min="0">
+                </td>
+                <td>
+                    <p class="totalClass" id="total1">0</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <img src="https://chensplant.com/wp-content/uploads/2024/06/8961.jpg" width="180px" height="160px">
+                </td>
+                <td>
+                    <p>西瓜皮椒草</p>
+                    <p class="priceClass" id="price2" data-price="350">350元</p>
+                    <p>西瓜皮椒草是胡椒科草胡椒屬，多年生草本植物，原產於南美洲和熱帶地區，葉子斑紋就像一顆3D的小西瓜。</p>
+                </td>
+                <td>
+                    <input class="inputClass" type="number" name="" id="input2" value="0" max="10" min="0">
+                </td>
+                <td>
+                    <p class="totalClass" id="total2">0</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <img src="https://down-tw.img.susercontent.com/file/tw-11134207-7r98t-lt2j6yzlcavc2b" width="180px"
+                        height="160px">
+                </td>
+                <td>
+                    <p>天鵝絨海芋</p>
+                    <p class="priceClass" id="price3" data-price="480">480元</p>
+                    <p>葉片有著天鵝絨般的質感，又加上白色帶點營光色的葉脈，深受許多植物迷喜愛。</p>
+                </td>
+                <td>
+                    <input class="inputClass" type="number" name="" id="input3" value="0" max="10" min="0">
+                </td>
+                <td>
+                    <p class="totalClass" id="total3">0</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3">總共金額為</td>
+                <td>
+                    <p id="sumResult">0 元</p>
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            // function
+            // get all Result => sum
+            function getSum() {
+
+                let sum = 0;
+                totalClass.each(function (index, element) {
+                    console.log('index', index);
+                    console.log('element', element);
+                    console.log('this', this);
+
+                    let getTotalValue = Number($(this).text());
+                    sum = sum + getTotalValue;
+
+                });
+
+                // 重構
+                if (sum >= 500) {
+                    sum = sum * 0.8;
+                    sumResult.attr('class', 'text-red');
+                } else {
+                    sumResult.attr('class', '');
+                    sumResult.removeClass('text-red');
+                }
+
+                let resultString = `${sum} 元`;
+                sumResult.text(resultString);
+
+            }
+
+            // 1.bind
+            const price1 = $('#price1');
+            const input1 = $('#input1');
+            const total1 = $('#total1');
+
+            const priceClass = $('.priceClass');
+            const inputClass = $('.inputClass');
+            const totalClass = $('.totalClass');
+
+            console.log('priceClass', priceClass);
+            console.log('inputClass', inputClass);
+            console.log('totalClass', totalClass);
+
+
+
+            const sumResult = $('#sumResult');
+            let sum = 0;
+
+
+            // 2.action
+            $.each(inputClass, function (indexInArray, valueOfElement) {
+                $(this).change(function (e) {
+                    console.log('change ok');
+
+                    // now ?
+                    console.log('now $(this)', $(this));
+
+                    // parent() tr
+                    myParent = $(this).parent().parent();
+                    console.log('myParent', myParent);
+
+                    // find() .class
+                    myPrice = myParent.find('.priceClass').attr('data-price');
+                    console.log('myPrice', myPrice);
+
+                    myTotal = myParent.find('.totalClass');
+
+
+                    let getPriceValue = Number(myPrice);
+                    let getInputValue = Number($(this).val());
+                    let result = getPriceValue * getInputValue;
+                    console.log(getPriceValue);
+                    console.log(getInputValue);
+                    console.log(result);
+                    myTotal.text(result);
+
+                    getSum();
+                });
+
+
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div class="box" id="box1">Box 1</div>
+    <div class="box" id="box2">Box 2</div>
+    <div class="box" id="box3">Box 3</div>
+
+    <script>
+        $(document).ready(function () {
+            // 當任何帶有 .box 類別的元素被點擊時
+            $('.box').click(function () {
+                // 顯示被點擊的元素本身
+                console.log('這是:', this);
+
+                // 顯示被點擊元素的 ID
+                console.log('元素ID:', $(this).attr('id'));
+
+                // 顯示被點擊元素的文本內容
+                console.log('元素文本:', $(this).text());
+            });
+        });
+    </script>
+</body>
+
+</html>

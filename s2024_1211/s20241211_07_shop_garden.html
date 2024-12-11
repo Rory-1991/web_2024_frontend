@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+
+        }
+
+        td,
+        th {
+            border: 1px solid lightgrey;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .text-red {
+            color: red;
+            font-size: 30px;
+        }
+
+        .cropped-image {
+            width: 100%;
+            height: auto;
+            clip-path: inset(0 35% 0 0);
+            /* 只顯示圖片的左半邊 */
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Garden Shop</h2>
+
+    <table>
+        <tr>
+            <!-- <th>id</th> -->
+            <th width="15%">pic</th>
+            <th width="20%">desc</th>
+            <th width="10%">num</th>
+            <th>total</th>
+        </tr>
+
+        <tr>
+            <td>
+                <img src="https://cdn01.pinkoi.com/product/sLjXeF5B/0/3/640x530.jpg" alt="" srcset="" width=" 180px"
+                    height="160px">
+            </td>
+            <td>
+                <p>
+                    萊姆黃金葛
+                </p>
+                <p class="priceClass" id="price1" data-price="200">
+                    260元
+                </p>
+                <p>
+                    萊姆黃金葛的葉片形狀看起來有一點點像愛心符號, 擁有色澤明亮顯眼的黃綠色葉片。
+                </p>
+
+            </td>
+            <td>
+                <input class="inputClass" type="number" name="" id="input1" value="0" max="10" min="0">
+            </td>
+            <td>
+                <p class="totalClass" id="total1">
+                    0
+                </p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <img src="https://chensplant.com/wp-content/uploads/2024/06/8961.jpg" width="180px" height="160px">
+            </td>
+            <td>
+                <p>
+                    西瓜皮椒草
+                </p>
+                <p class="priceClass" id="price2" data-price="100">
+                    350元
+                </p>
+                <p>
+                    西瓜皮椒草是胡椒科草胡椒屬，多年生草本植物，原產於南美洲和熱帶地區，葉子斑紋就像一顆3D的小西瓜。
+                </p>
+
+            </td>
+            <td>
+                <input class="inputClass" type="number" name="" id="input2" value="0" max="10" min="0">
+            </td>
+            <td>
+                <p class="totalClass" id="total2">
+                    0
+                </p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <img src="https://down-tw.img.susercontent.com/file/tw-11134207-7r98t-lt2j6yzlcavc2b" alt="" srcset=""
+                    width="180px" height="160px">
+            </td>
+            <td>
+                <p>
+                    天鵝絨海芋
+                </p>
+                <p class="priceClass" id="price3" data-price="50">
+                    480元
+                </p>
+                <p>
+                    葉片有著天鵝絨般的質感，又加上白色帶點營光色的葉脈，深受許多植物迷喜愛。
+                </p>
+
+            </td>
+            <td>
+                <input class="inputClass" type="number" name="" id="input3" value="0" max="10" min="0">
+            </td>
+            <td>
+                <p class="totalClass" id="total3">
+                    0
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                總共金額為
+            </td>
+            <!-- <td>
+            </td>
+            <td>
+            </td> -->
+            <td>
+                <p id="sumResult">
+                    0 元
+                </p>
+
+            </td>
+        </tr>
+
+    </table>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            // function
+            // get all Result => sum
+            function getSum() {
+
+                let sum = 0;
+                totalClass.each(function (index, element) {
+                    console.log('index', index);
+                    console.log('element', element);
+                    console.log('this', this);
+
+                    let getTotalValue = Number($(this).text());
+                    sum = sum + getTotalValue;
+
+                });
+
+                // 重構
+                if (sum >= 200) {
+                    sum = sum * 0.8;
+                    sumResult.attr('class', 'text-red');
+                } else {
+                    sumResult.attr('class', '');
+                    // sumResult.removeClass('text-red');
+                }
+
+                let resultString = `${sum} 元`;
+                sumResult.text(resultString);
+
+            }
+
+            // 1.bind
+            const price1 = $('#price1');
+            const input1 = $('#input1');
+            const total1 = $('#total1');
+
+            const priceClass = $('.priceClass');
+            const inputClass = $('.inputClass');
+            const totalClass = $('.totalClass');
+
+            console.log('priceClass', priceClass);
+            console.log('inputClass', inputClass);
+            console.log('totalClass', totalClass);
+
+
+
+            const sumResult = $('#sumResult');
+            let sum = 0;
+
+
+            // 2.action
+            $.each(inputClass, function (indexInArray, valueOfElement) {
+                $(this).change(function (e) {
+                    console.log('change ok');
+
+                    // now ?
+                    console.log('now $(this)', $(this));
+
+                    // parent() tr
+                    myParent = $(this).parent().parent();
+                    console.log('myParent', myParent);
+
+                    // find() .class
+                    myPrice = myParent.find('.priceClass').attr('data-price');
+                    console.log('myPrice', myPrice);
+
+                    myTotal = myParent.find('.totalClass');
+
+
+                    let getPriceValue = Number(myPrice);
+                    let getInputValue = Number($(this).val());
+                    let result = getPriceValue * getInputValue;
+                    console.log(getPriceValue);
+                    console.log(getInputValue);
+                    console.log(result);
+                    myTotal.text(result);
+
+                    getSum();
+                });
+
+
+            });
+        });
+    </script>
+</body>
+
+</html>

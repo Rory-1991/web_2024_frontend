@@ -51,7 +51,7 @@
                 <p>
                     茶
                 </p>
-                <p id="price1" data-price="200">
+                <p class="priceClass" id="price1" data-price="200">
                     200元
                 </p>
                 <p>
@@ -60,10 +60,10 @@
 
             </td>
             <td>
-                <input type="number" name="" id="input1" value="0" max="10" min="0">
+                <input class="inputClass" type="number" name="" id="input1" value="0" max="10" min="0">
             </td>
             <td>
-                <p id="total1">
+                <p class="totalClass" id="total1">
                     0
                 </p>
             </td>
@@ -77,7 +77,7 @@
                 <p>
                     咖啡
                 </p>
-                <p id="price2" data-price="100">
+                <p class="priceClass" id="price2" data-price="100">
                     100元
                 </p>
                 <p>
@@ -86,10 +86,10 @@
 
             </td>
             <td>
-                <input type="number" name="" id="input2" value="0" max="10" min="0">
+                <input class="inputClass" type="number" name="" id="input2" value="0" max="10" min="0">
             </td>
             <td>
-                <p id="total2">
+                <p class="totalClass" id="total2">
                     0
                 </p>
             </td>
@@ -103,7 +103,7 @@
                 <p>
                     礦泉水
                 </p>
-                <p id="price3" data-price="50">
+                <p class="priceClass" id="price3" data-price="50">
                     50元
                 </p>
                 <p>
@@ -112,10 +112,10 @@
 
             </td>
             <td>
-                <input type="number" name="" id="input3" value="0" max="10" min="0">
+                <input class="inputClass" type="number" name="" id="input3" value="0" max="10" min="0">
             </td>
             <td>
-                <p id="total3">
+                <p class="totalClass" id="total3">
                     0
                 </p>
             </td>
@@ -149,29 +149,17 @@
             // function
             // get all Result => sum
             function getSum() {
-                let getTotal1Value = Number(total1.text());
-                let getTotal2Value = Number(total2.text());
-                let getTotal3Value = Number(total3.text());
-                console.log('getTotal1Value', getTotal1Value);
-                console.log('getTotal2Value', getTotal2Value);
-                console.log('getTotal3Value', getTotal3Value);
 
-                let sum = getTotal1Value + getTotal2Value + getTotal3Value;
-                console.log('getSum', sum);
+                let sum = 0;
+                totalClass.each(function (index, element) {
+                    console.log('index', index);
+                    console.log('element', element);
+                    console.log('this', this);
 
+                    let getTotalValue = Number($(this).text());
+                    sum = sum + getTotalValue;
 
-                // > 200
-                // 打8折
-                // other
-                // 原價
-                // if (sum >= 200) {
-                //     sum = sum * 0.8;
-                //     let resultString = `${sum} 元`;
-                //     sumResult.text(resultString);
-                // } else {
-                //     let resultString = `${sum} 元`;
-                //     sumResult.text(resultString);
-                // }
+                });
 
                 // 重構
                 if (sum >= 200) {
@@ -192,61 +180,52 @@
             const input1 = $('#input1');
             const total1 = $('#total1');
 
-            const price2 = $('#price2');
-            const input2 = $('#input2');
-            const total2 = $('#total2');
+            const priceClass = $('.priceClass');
+            const inputClass = $('.inputClass');
+            const totalClass = $('.totalClass');
 
-            const price3 = $('#price3');
-            const input3 = $('#input3');
-            const total3 = $('#total3');
+            console.log('priceClass', priceClass);
+            console.log('inputClass', inputClass);
+            console.log('totalClass', totalClass);
+
+
 
             const sumResult = $('#sumResult');
             let sum = 0;
 
 
             // 2.action
-            input1.change(function (e) {
-                console.log('change ok');
-                let getPrice1Value = Number(price1.attr('data-price'));
-                let getInput1Value = Number(input1.val());
-                let result1 = getPrice1Value * getInput1Value;
-                console.log(getPrice1Value);
-                console.log(getInput1Value);
-                console.log(result1);
-                total1.text(result1);
+            $.each(inputClass, function (indexInArray, valueOfElement) {
+                $(this).change(function (e) {
+                    console.log('change ok');
 
-                getSum();
-            });
+                    // now ?
+                    console.log('now $(this)', $(this));
 
-            input2.change(function (e) {
-                console.log('change ok');
-                let getPrice2Value = Number(price2.attr('data-price'));
-                let getInput2Value = Number(input2.val());
-                let result2 = getPrice2Value * getInput2Value;
-                console.log(getPrice2Value);
-                console.log(getInput2Value);
-                console.log(result2);
-                total2.text(result2);
+                    // parent() tr
+                    myParent = $(this).parent().parent();
+                    console.log('myParent', myParent);
 
-                getSum();
+                    // find() .class
+                    myPrice = myParent.find('.priceClass').attr('data-price');
+                    console.log('myPrice', myPrice);
 
-            });
+                    myTotal = myParent.find('.totalClass');
 
-            input3.change(function (e) {
-                console.log('change ok');
-                let getPrice3Value = Number(price3.attr('data-price'));
-                let getInput3Value = Number(input3.val());
-                let result3 = getPrice3Value * getInput3Value;
-                console.log(getPrice3Value);
-                console.log(getInput3Value);
-                console.log(result3);
-                total3.text(result3);
 
-                getSum();
+                    let getPriceValue = Number(myPrice);
+                    let getInputValue = Number($(this).val());
+                    let result = getPriceValue * getInputValue;
+                    console.log(getPriceValue);
+                    console.log(getInputValue);
+                    console.log(result);
+                    myTotal.text(result);
+
+                    getSum();
+                });
+
 
             });
-
-
         });
     </script>
 </body>
