@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+
+        }
+
+        td,
+        th {
+            border: 1px solid lightgrey;
+            padding: 8px;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            /* background-color: #dddddd; */
+        }
+    </style>
+</head>
+
+<body>
+    <h2>SHOP</h2>
+
+    <table>
+        <tr>
+            <!-- <th>id</th> -->
+            <th width="15%">pic</th>
+            <th width="20%">desc</th>
+            <th width="10%">num</th>
+            <th>total</th>
+        </tr>
+
+        <tr>
+            <td>
+                <img src="https://picsum.photos/id/20/180/160" alt="" srcset="">
+            </td>
+            <td>
+                <p>
+                    茶
+                </p>
+                <p id="price1" data-price="200">
+                    200元
+                </p>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore, quidem.
+                </p>
+
+            </td>
+            <td>
+                <input type="number" name="" id="input1" value="0" max="10" min="0">
+            </td>
+            <td>
+                <p id="total1">
+                    0
+                </p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <img src="https://picsum.photos/id/22/180/160" alt="" srcset="">
+            </td>
+            <td>
+                <p>
+                    咖啡
+                </p>
+                <p id="price2" data-price="100">
+                    100元
+                </p>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore, quidem.
+                </p>
+
+            </td>
+            <td>
+                <input type="number" name="" id="input2" value="0" max="10" min="0">
+            </td>
+            <td>
+                <p id="total2">
+                    0
+                </p>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <img src="https://picsum.photos/id/23/180/160" alt="" srcset="">
+            </td>
+            <td>
+                <p>
+                    礦泉水
+                </p>
+                <p id="price3" data-price="50">
+                    50元
+                </p>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Labore, quidem.
+                </p>
+
+            </td>
+            <td>
+                <input type="number" name="" id="input3" value="0" max="10" min="0">
+            </td>
+            <td>
+                <p id="total3">
+                    0
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                總共金額為
+            </td>
+            <!-- <td>
+            </td>
+            <td>
+            </td> -->
+            <td>
+                <p id="sumResult">
+                    0 元
+                </p>
+
+            </td>
+        </tr>
+
+    </table>
+
+    <hr>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            // function
+            // get all Result => sum
+            function getSum() {
+                let getTotal1Value = Number(total1.text());
+                let getTotal2Value = Number(total2.text());
+                let getTotal3Value = Number(total3.text());
+                console.log('getTotal1Value', getTotal1Value);
+                console.log('getTotal2Value', getTotal2Value);
+                console.log('getTotal3Value', getTotal3Value);
+
+                let sum = getTotal1Value + getTotal2Value + getTotal3Value;
+                console.log('getSum', sum);
+                let resultString = `${sum} 元`;
+                sumResult.text(resultString);
+
+            }
+
+            // 1.bind
+            const price1 = $('#price1');
+            const input1 = $('#input1');
+            const total1 = $('#total1');
+
+            const price2 = $('#price2');
+            const input2 = $('#input2');
+            const total2 = $('#total2');
+
+            const price3 = $('#price3');
+            const input3 = $('#input3');
+            const total3 = $('#total3');
+
+            const sumResult = $('#sumResult');
+            let sum = 0;
+
+
+            // 2.action
+            input1.change(function (e) {
+                console.log('change ok');
+                let getPrice1Value = Number(price1.attr('data-price'));
+                let getInput1Value = Number(input1.val());
+                let result1 = getPrice1Value * getInput1Value;
+                console.log(getPrice1Value);
+                console.log(getInput1Value);
+                console.log(result1);
+                total1.text(result1);
+
+                getSum();
+            });
+
+            input2.change(function (e) {
+                console.log('change ok');
+                let getPrice2Value = Number(price2.attr('data-price'));
+                let getInput2Value = Number(input2.val());
+                let result2 = getPrice2Value * getInput2Value;
+                console.log(getPrice2Value);
+                console.log(getInput2Value);
+                console.log(result2);
+                total2.text(result2);
+
+                getSum();
+
+            });
+
+            input3.change(function (e) {
+                console.log('chaneg ok');
+                let getPrice3Value = Number(price3.attr('data-price'));
+                let getInput3Value = Number(input3.val());
+                let result3 = getPrice3Value * getInput3Value;
+                console.log(getPrice3Value);
+                console.log(getInput3Value);
+                console.log(result3);
+                total3.text(result3);
+
+                getSum();
+
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>

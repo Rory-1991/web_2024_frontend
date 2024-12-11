@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        #box {
+            width: 100%;
+            height: 80vh;
+            background-color: lightblue;
+            margin-top: 30px;
+            /* display: block; */
+            /* display: none; */
+        }
+    </style>
+
+</head>
+
+<body>
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
+    <button id="toggle">Toggle</button>
+
+    <div id="box">
+        <img src="https://picsum.photos/id/20/1920/1080" alt="" srcset="">
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            // box.hide()
+            // box.show(3000);
+            // 1.bind
+            const hide = $('#hide');
+            const show = $('#show');
+            const toggle = $('#toggle');
+            const box = $('#box');
+
+            box.hide();
+            box.fadeIn(10000);
+            // 2.action
+            hide.click(function (e) {
+                console.log('hide ok');
+                box.fadeOut(3000);
+
+            });
+
+            show.click(function (e) {
+                console.log('show ok');
+                box.fadeIn(3000);
+
+            });
+
+            toggle.click(function () {
+                box.fadeToggle(3000);
+            });
+
+            // 
+            // 抓今天日期
+            // 畫表格
+            // 填上當月日期
+            // ......
+        });
+    </script>
+</body>
+
+</html>
