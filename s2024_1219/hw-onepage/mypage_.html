@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Touché Café</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Navbar with Search and Login/Register Links -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Touché Café</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#carouselExample">Photos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#featureMenu">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#featurette1">Intro</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#featurette2">Location</a>
+          </li>
+          <!--           <li class="nav-item ms-auto">
+            <a class="nav-link" href="#loginModal" data-bs-toggle="modal">Login</a>
+          </li>
+          <li class="nav-item ms-2">
+            <a class="nav-link" href="#registerModal" data-bs-toggle="modal">Register</a>
+          </li> -->
+        </ul>
+
+        <!-- Search Form -->
+        <form class="d-flex ms-auto" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-secondary" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Punny Headline Section -->
+  <div class="d-flex flex-column min-vh-100 bg-black bg-opacity-50 pt-10 pt-md-8 pb-7 pb-md-0"
+    style="background-image: url('./11.jpg')">
+    <div class="container my-auto">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 text-center">
+          <!-- Preheading -->
+          <h6 class="text-xs text-white text-opacity-75"><span class="text-warning">Café</span> / Restaurant</h6>
+
+          <!-- Heading -->
+          <h1 class="display-1 text-white mb-4">Touché</h1>
+
+          <!-- Subheading -->
+          <p class="text-center text-white text-opacity-75 mb-7">
+            A unique café located in the heart of Los Angeles. Always fresh coffee and biscuits. Open for indoor dining
+            and to-go orders.
+          </p>
+
+          <!-- Button -->
+          <a class="btn btn-outline-warning text-white text-primary-hover mb-7 mb-md-0" href="#reservationDivider">
+            Make
+            reservation </a>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md">
+          <!-- Social links -->
+          <ul class="list-inline text-center text-md-start mb-3 my-md-5">
+            <li class="list-inline-item">
+              <a class="text-white text-opacity-75 text-primary-hover" href="#!">
+                <svg class="svg-inline--fa fa-twitter" aria-hidden="true" focusable="false" data-prefix="fab"
+                  data-icon="twitter" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                  data-fa-i2svg="">
+                  <path fill="currentColor"
+                    d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z">
+                  </path>
+                </svg><!-- <i class="fab fa-twitter"></i> Font Awesome fontawesome.com -->
+              </a>
+            </li>
+            <li class="list-inline-item ms-5">
+              <a class="text-white text-opacity-75 text-primary-hover" href="#!">
+                <svg class="svg-inline--fa fa-facebook-f" aria-hidden="true" focusable="false" data-prefix="fab"
+                  data-icon="facebook-f" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                  data-fa-i2svg="">
+                  <path fill="currentColor"
+                    d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4 .4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z">
+                  </path>
+                </svg><!-- <i class="fab fa-facebook-f"></i> Font Awesome fontawesome.com -->
+              </a>
+            </li>
+            <li class="list-inline-item ms-5">
+              <a class="text-white text-opacity-75 text-primary-hover" href="#!">
+                <svg class="svg-inline--fa fa-instagram" aria-hidden="true" focusable="false" data-prefix="fab"
+                  data-icon="instagram" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                  data-fa-i2svg="">
+                  <path fill="currentColor"
+                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z">
+                  </path>
+                </svg><!-- <i class="fab fa-instagram"></i> Font Awesome fontawesome.com -->
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md">
+          <!-- Address -->
+          <p class="font-serif text-white text-opacity-75 text-center text-md-end text-lg-end my-md-5">
+            <svg class="svg-inline--fa fa-location-dot text-primary me-3" aria-hidden="true" focusable="false"
+              data-prefix="fas" data-icon="location-dot" role="img" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 384 512" data-fa-i2svg="">
+              <path fill="currentColor"
+                d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z">
+              </path>
+            </svg><!-- <i class="fas fa-map-marker-alt text-primary me-3"></i> Font Awesome fontawesome.com -->
+            1234 Dining Str., ABC City, Somewhere Nowhere
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="pt-7 pt-md-9">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <!-- Divider -->
+          <hr class="hr-sm" style="color:#DFAC6A;">
+
+          <!-- Text -->
+          <p class="fs-lg lh-lg text-body-emphasis mb-5 mb-md-0">Take a coffee break or enjoy a meal.</p>
+        </div>
+        <div class="col-md-4">
+          <!-- Media -->
+          <div class="media-decoration media-decoration-1 mb-5 mb-md-0">
+
+
+
+            <!-- Image -->
+            <img class="media-decoration-img  img-fluid" src="./2.jpg">
+          </div>
+        </div>
+        <div class="col-md-5 align-self-center mx-auto">
+          <!-- Heading -->
+          <h2 class="mb-2"><em>Always</em> amazing experience</h2>
+
+          <!-- Text -->
+          <p class="mb-0">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias veritatis nisi, consequatur, laborum
+            libero a neque ducimus. Porro rem illum
+            quo nostrum quisquam asperiores. Possimus facilis velit, voluptatibus!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="py-7 py-md-9">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 order-md-3">
+          <!-- Media -->
+          <div class="media-decoration media-decoration-1 mb-5 mb-md-0">
+            <!-- Solid -->
+            <div class="media-decoration-solid" style="transform: translate3d(0px, -5.61789px, 0px);">
+              <div
+                style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; z-index: -100; clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%);">
+                <div
+                  style="pointer-events: none; transform-style: preserve-3d; backface-visibility: hidden; position: fixed;">
+                </div>
+              </div>
+            </div>
+
+            <!-- Border -->
+            <div class="media-decoration-border" style="transform: translate3d(0px, 2.93892px, 0px);">
+              <div
+                style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; overflow: hidden; z-index: -100; clip-path: polygon(0px 0px, 100% 0px, 100% 100%, 0px 100%);">
+                <div
+                  style="pointer-events: none; transform-style: preserve-3d; backface-visibility: hidden; position: fixed;">
+                </div>
+              </div>
+            </div>
+
+            <!-- Image -->
+            <img class="media-decoration-img img-fluid" src="./3.jpg" alt="...">
+          </div>
+        </div>
+        <div class="col-md-5 order-md-1 align-self-center mx-auto">
+          <!-- Heading -->
+          <h2 class="mb-2"><em>Beautiful</em> outdoor seating</h2>
+
+          <!-- Text -->
+          <p class="mb-0">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quae similique asperiores consequatur! Nihil
+            temporibus qui enim. Accusamus
+            voluptates a, et quidem! Quo, et?
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carousel -->
+  <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="./14.jpg" class="d-block w-100" alt="..." style="height:1100px;">
+      </div>
+      <div class="carousel-item">
+        <img src="./13.jpg" class="d-block w-100" alt="..." style="height:1100px;">
+      </div>
+      <div class="carousel-item">
+        <img src="./19.jpg" class="d-block w-100" alt="..." style="height:1100px;">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Featurette 0 (Menu) -->
+  <div class="container py-5" id="featureMenu">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 text-center">
+          <!-- Heading -->
+          <h2 class="mb-2">Menu options</h2>
+
+          <!-- Subheading -->
+          <p class="mb-6">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione numquam eos perferendis itaque hic unde,
+            ad, laudantium minima.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <!-- Navigation -->
+          <div class="nav justify-content-center mb-6" id="menuTabs" role="tablist">
+            <a class="nav-link active" id="mainsTab" data-bs-toggle="tab" href="#mains" role="tab" aria-controls="mains"
+              aria-selected="true"> Mains </a>
+            <a class="nav-link" id="drinksTab" data-bs-toggle="tab" href="#drinks" role="tab" aria-controls="drinks"
+              aria-selected="false" tabindex="-1"> Drinks </a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <!-- Content -->
+          <div class="tab-content" id="menuContent">
+            <div class="tab-pane fade show active" id="mains" role="tabpanel" aria-labelledby="mainsTab">
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <div class="py-3 border-bottom">
+                    <div class="row">
+                      <div class="col-3 align-self-center">
+                        <!-- Image -->
+                        <div class="ratio ratio-1x1">
+                          <img class="object-fit-cover" src="./menu/26.jpg" alt="...">
+                        </div>
+                      </div>
+                      <div class="col-7">
+                        <!-- Heading -->
+                        <h5 class="mb-2">Signature Burger</h5>
+
+                        <!-- Text -->
+                        <p class="mb-0">Sizzling applewood-smoked bacon, Parmesan cage-free egg frittata and melted aged
+                          Gouda on an artisan roll.
+                          -HIGH-PROTEIN</p>
+                      </div>
+                      <div class="col-2">
+                        <!-- Price -->
+                        <div class="fs-4 font-serif text-center text-body-emphasis">$15</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="py-3 border-bottom">
+                    <div class="row">
+                      <div class="col-3 align-self-center">
+                        <!-- Image -->
+                        <div class="ratio ratio-1x1">
+                          <img class="object-fit-cover" src="./menu/29.jpg" alt="...">
+                        </div>
+                      </div>
+                      <div class="col-7">
+                        <!-- Heading -->
+                        <h5 class="mb-2">Cheddar & Uncured Salami Protein Box</h5>
+
+                        <!-- Text -->
+                        <p class="mb-0">Flavorful salami, aged sharp and white Cheddar cheeses and olive oil and
+                          sea-salt crackers paired with a blend of dried cranberries, almonds, walnuts and pepitas.</p>
+                      </div>
+                      <div class="col-2">
+                        <!-- Price -->
+                        <div class="fs-4 font-serif text-center text-body-emphasis">$23</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="py-3 border-bottom">
+                    <div class="row">
+                      <div class="col-3 align-self-center">
+                        <!-- Image -->
+                        <div class="ratio ratio-1x1">
+                          <img class="object-fit-cover" src="./menu/28.jpg" alt="...">
+                        </div>
+                      </div>
+                      <div class="col-7">
+                        <!-- Heading -->
+                        <h5 class="mb-2">Butter Croissant</h5>
+
+                        <!-- Text -->
+                        <p class="mb-0">Classic butter croissant with soft, flaky layers and a golden-brown crust.</p>
+                      </div>
+                      <div class="col-2">
+                        <!-- Price -->
+                        <div class="fs-4 font-serif text-center text-body-emphasis">$16</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="py-3 border-bottom">
+                    <div class="row">
+                      <div class="col-3 align-self-center">
+                        <!-- Image -->
+                        <div class="ratio ratio-1x1">
+                          <img class="object-fit-cover" src="./menu/31.jpg" alt="...">
+                        </div>
+                      </div>
+                      <div class="col-7">
+                        <!-- Heading -->
+                        <h5 class="mb-2">Crispy Grilled Cheese on Sourdough</h5>
+
+                        <!-- Text -->
+                        <p class="mb-0">A blend of white Cheddar and mozzarella cheeses on sourdough bread, topped with
+                          a Parmesan butter spread.</p>
+                      </div>
+                      <div class="col-2">
+                        <!-- Price -->
+                        <div class="fs-4 font-serif text-center text-body-emphasis">$15</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="drinks" role="tabpanel" aria-labelledby="drinksTab">
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <div class="py-3 border-bottom">
+                    <div class="row">
+                      <div class="col-3 align-self-center">
+                        <!-- Image -->
+                        <div class="ratio ratio-1x1">
+                          <img class="object-fit-cover" src="./menu/d1.jpeg" alt="...">
+                        </div>
+                      </div>
+                      <div class="col-7">
+                        <!-- Heading -->
+                        <h5 class="mb-2">Latte</h5>
+
+                        <!-- Text -->
+                        <p class="mb-0">Our dark, rich espresso balanced with steamed milk and a light layer of foam. A
+                          perfect milk-forward warm-up.</p>
+                      </div>
+                      <div class="col-2">
+                        <!-- Price -->
+                        <div class="fs-4 font-serif text-center text-body-emphasis">$15</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="py-3 border-bottom">
+                    <div class="row">
+                      <div class="col-3 align-self-center">
+                        <!-- Image -->
+                        <div class="ratio ratio-1x1">
+                          <img class="object-fit-cover" src="./menu/d2.jpeg" alt="...">
+                        </div>
+                      </div>
+                      <div class="col-7">
+                        <!-- Heading -->
+                        <h5 class="mb-2">Caffè Americano</h5>
+
+                        <!-- Text -->
+                        <p class="mb-0">Espresso shots topped with hot water create a light layer of crema culminating
+                          in this wonderfully rich cup with depth and nuance.</p>
+                      </div>
+                      <div class="col-2">
+                        <!-- Price -->
+                        <div class="fs-4 font-serif text-center text-body-emphasis">$23</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="py-3 border-bottom">
+                    <div class="row">
+                      <div class="col-3 align-self-center">
+                        <!-- Image -->
+                        <div class="ratio ratio-1x1">
+                          <img class="object-fit-cover" src="./menu/d3.jpeg" alt="...">
+                        </div>
+                      </div>
+                      <div class="col-7">
+                        <!-- Heading -->
+                        <h5 class="mb-2">Hot Chocolate</h5>
+
+                        <!-- Text -->
+                        <p class="mb-0">Steamed milk with chocolate-flavored syrups. Topped with sweetened whipped cream
+                          and chocolate-flavored drizzle. A timeless classic made to sweeten your spirits.</p>
+                      </div>
+                      <div class="col-2">
+                        <!-- Price -->
+                        <div class="fs-4 font-serif text-center text-body-emphasis">$15</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="py-3 border-bottom">
+                    <div class="row">
+                      <div class="col-3 align-self-center">
+                        <!-- Image -->
+                        <div class="ratio ratio-1x1">
+                          <img class="object-fit-cover" src="./menu/d4.jpeg" alt="...">
+                        </div>
+                      </div>
+                      <div class="col-7">
+                        <!-- Heading -->
+                        <h5 class="mb-2">Royal English Breakfast Tea</h5>
+
+                        <!-- Text -->
+                        <p class="mb-0">Each sip of this beloved morning black tea unfolds to reveal the complexity of
+                          the high-grown full leaves. An elegant, time-honored classic that brings a royal nod to every
+                          cup.</p>
+                      </div>
+                      <div class="col-2">
+                        <!-- Price -->
+                        <div class="fs-4 font-serif text-center text-body-emphasis">$23</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Featurette 1 (YouTube Video) -->
+  <div id="featurette1" class="container py-5">
+    <div class="row">
+      <div class="col-lg-7">
+        <h2>Touché Café</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione numquam eos perferendis itaque hic unde,
+          ad, laudantium minima.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione numquam eos
+          perferendis itaque hic unde,ad, laudantium minima.</p>
+      </div>
+      <div class="col-lg-5">
+        <!-- YouTube Embedded Video -->
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/_bNbada12iM" frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Featurette Divider -->
+  <hr class="featurette-divider" id="reservationDivider">
+
+  <div class="container py-5" id="reservation">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-6 text-center">
+          <!-- Heading -->
+          <h2 class="mb-2">Make online reservation</h2>
+
+          <!-- Subheading -->
+          <p class="mb-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam illo praesentium sequi in
+            cum, beatae maiores quae qui.</p>
+        </div>
+      </div>
+      <div class="row justify-content-lg-center">
+        <div class="col-lg-8">
+          <!-- Form -->
+          <form>
+            <div class="row gx-3">
+              <div class="col-md-6">
+                <!-- Contact number (hidden) -->
+                <input type="hidden" name="contact_number">
+
+                <!-- Full name -->
+                <div class="mb-3">
+                  <label class="visually-hidden" for="user_name">Full name</label>
+                  <input class="form-control" id="user_name" name="user_name" type="text" placeholder="Full name"
+                    required="">
+                </div>
+
+                <!-- Phone number -->
+                <div class="mb-3">
+                  <label class="visually-hidden" for="user_phone">Phone number</label>
+                  <input class="form-control" id="user_phone" name="user_phone" type="tel" placeholder="Phone number"
+                    required="">
+                </div>
+
+                <!-- Email address -->
+                <div class="mb-3">
+                  <label class="visually-hidden" for="user_email">Email address</label>
+                  <input class="form-control" id="user_email" name="user_email" type="email" placeholder="Email address"
+                    required="">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <!-- Guests -->
+                <div class="mb-3">
+                  <label class="visually-hidden" for="guests">Guests</label>
+                  <select class="form-select" id="guests" name="guests" required="">
+                    <option value="1">1 person</option>
+                    <option value="2" selected="">2 persons</option>
+                    <option value="3">3 persons</option>
+                    <option value="4">4 persons</option>
+                    <option value="5">5 persons</option>
+                  </select>
+                </div>
+
+                <!-- Date -->
+                <div class="mb-3">
+                  <label class="visually-hidden" for="date">Date</label>
+                  <input class="form-control" id="date" name="date" type="date" value="2021-02-12" required="">
+                </div>
+
+                <!-- Time -->
+                <div class="mb-3">
+                  <label class="visually-hidden" for="time">Time</label>
+                  <input class="form-control" id="time" name="time" type="time" value="18:00" required="">
+                </div>
+              </div>
+              <div class="col text-center">
+                <!-- Button -->
+                <button class="btn btn-outline-secondary" type="submit">Reserve a table</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Featurette Divider -->
+  <hr class="featurette-divider">
+
+  <!-- Featurette 2 (Google Map) -->
+  <div id="featurette2" class="container py-5">
+    <div class="row">
+      <div class="col-lg-7 order-lg-2">
+        <h2>Location</h2>
+        <p>1234 Dining Str., ABC City, Somewhere Nowhere 12345-0000</p>
+      </div>
+      <div class="col-lg-5 order-lg-1">
+        <!-- Google Maps Embedded Map -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.2799144057!2d-74.2598756!3d40.6976701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a27cc3d36b9%3A0x1b999b5ad7b4909!2sNew+York+City%2C+NY!5e0!3m2!1sen!2sus!4v1592110806186!5m2!1sen!2sus"
+          width="100%" height="315" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer with Social Media Icons -->
+  <footer class="bg-dark text-white py-3 text-center">
+    <p>&copy; 2024 My Website. All rights reserved.</p>
+    <!-- Social Media Links -->
+    <div>
+      <a href="https://www.facebook.com" target="_blank" class="text-white mx-3">
+        <i class="fab fa-facebook fa-2x"></i>
+      </a>
+      <a href="https://twitter.com" target="_blank" class="text-white mx-3">
+        <i class="fab fa-twitter fa-2x"></i>
+      </a>
+      <a href="https://www.instagram.com" target="_blank" class="text-white mx-3">
+        <i class="fab fa-instagram fa-2x"></i>
+      </a>
+      <a href="https://www.linkedin.com" target="_blank" class="text-white mx-3">
+        <i class="fab fa-linkedin fa-2x"></i>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS and Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+  <!-- Font Awesome JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+  <script src="./myscript.js"></script>
+</body>
+
+</html>
