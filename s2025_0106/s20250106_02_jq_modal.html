@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- link css 順序 1.bs 2.self -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+        integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .box {
+            width: 80%;
+            height: 80%;
+            background-color: lightblue;
+            border-radius: 35px;
+
+            /* display: none; */
+
+            position: fixed;
+            left: 10%;
+            top: 10%;
+        }
+
+        .box>.close {
+
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 70px;
+            height: 70px;
+            background-color: white;
+            color: red;
+            border-radius: 35px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>my modal</h1>
+    </div>
+    <div class="container mt-3">
+        <button id="myBtn" type="button" class="btn btn-primary">myBtn</button>
+    </div>
+    <div class="container mt-3">
+        <div class="box" id="myModal">
+            <div class="close" id="modalClose">
+                X
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- js include 順序 1.bs 2.jq 3.self -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"
+        integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            // 1.bind
+            const myBtn = $('#myBtn');
+            const myModal = $('#myModal');
+            const modalClose = $('#modalClose');
+
+            // 2.action
+            myBtn.click(function (e) {
+                myModal.show();
+
+            });
+
+            modalClose.click(function (e) {
+                myModal.hide();
+
+            });
+
+        });
+    </script>
+</body>
+
+</html>
