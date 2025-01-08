@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let myArr = [1, 2, 3, 4, 5];
+        let newArr = [];
+        let sum = 100;
+        console.log('myArr', myArr);
+        // element / value
+        // js method / map
+        // myArr.forEach(function (value) {
+        //     console.log('value', value);
+        //     let tmp = value * 2;
+        //     newArr.push(tmp);
+        // });
+
+        // js method / filter
+        // myArr.forEach(function (value) {
+        //     if (value > 3) {
+        //         newArr.push(value);
+        //     }
+        // });
+
+        // js method / sum
+        myArr.forEach(function (value) {
+            sum += value;
+        });
+
+
+        let mapArr = myArr.map(function (value) {
+            return value * 2;
+        });
+
+        let filterArr = myArr.filter(function (value) {
+            return value > 3;
+        });
+
+        let sumReduce = myArr.reduce(function (total, value) {
+            return total + value;
+        }, 1000);
+
+
+        console.log('myArr', myArr);
+        console.log('mapArr', mapArr);
+        console.log('filterArr', filterArr);
+        console.log('newArr', newArr);
+        console.log('sum', sum);
+        console.log('sumReduce', sumReduce);
+
+
+
+        // console.log('myArr', myArr);;
+        // console.log('newArr', newArr);;
+
+
+        // jqery method
+        $.each(collection, function (indexInArray, valueOfElement) {
+
+        });
+
+        // jqery method
+        $(selector).each(function (index, element) {
+            // element == this
+
+        });
+
+    </script>
+</body>
+
+</html>
