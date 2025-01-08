@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 挑戰
+
+        let salary = [10000, 20000, 30000, 40000, 50000];
+        let addSalary = [];
+        let bonusSalary = [];
+        let sum = 0;
+
+        // 1.增加10%薪水
+        // 2.當我薪水超過30000,增加bonus 5000
+        // 3.總共要發多少錢
+
+        salary.forEach(function (value) {
+            let tmp = parseInt(value * 1.1);
+            addSalary.push(tmp);
+        });
+
+        console.log('salary', salary);
+        console.log('addSalary', addSalary);
+
+        addSalary.forEach(function (value) {
+            let tmp = Number(value);
+            if (value > 30000) {
+                tmp = Number(value + 5000);
+            }
+
+
+            bonusSalary.push(tmp);
+        });
+        console.log('bonusSalary', bonusSalary);
+
+        bonusSalary.forEach(function (value) {
+            sum += value;
+        });
+
+        console.log('sum', sum);
+
+
+
+    </script>
+</body>
+
+</html>
