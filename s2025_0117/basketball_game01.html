@@ -98,7 +98,7 @@
         <button id="startButton" class="btn btn-primary button">開始遊戲</button>
         <button id="shootButton" class="btn btn-success button" disabled>投籃</button>
         <button id="endGameButton" class="btn btn-danger button" disabled>結束遊戲</button>
-        <button id="resetScoreButton" class="btn btn-warning button">重置分數</button>
+        <button id="resetScoreButton" class="btn btn-warning button">重置</button>
         <div id="score" class="scoreboard mt-4">
             <p>當前得分: <span id="currentScore">0</span></p>
             <p>最高得分: <span id="highScore">0</span></p>
@@ -199,12 +199,17 @@
 
             // 停止遊戲
             isGameActive = false;
+            clearInterval(gameInterval); // 清空讀秒避免下次開始遊戲時interval重疊
+            timeLeft = 60;
+            currentScore = 0;
+            document.getElementById('currentScore').textContent = currentScore; // 清空當前得分
+            document.getElementById('timer').textContent = timeLeft; // 重置倒數計時
         }
 
-        // 重置分數
+        // 重置最高得分
         function resetScore() {
-            currentScore = 0;
-            document.getElementById('currentScore').textContent = currentScore;
+            highScore = 0;
+            document.getElementById('highScore').textContent = highScore;
         }
     </script>
 </body>
