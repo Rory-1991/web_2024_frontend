@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投籃小遊戲</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .game-area {
+            width: 100%;
+            height: 200px;
+            background-color: #f8f9fa;
+            border: 2px solid #ddd;
+            position: relative;
+            text-align: center;
+        }
+
+        .basket {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            width: 100px;
+            height: 50px;
+            background-color: #ff5733;
+            border-radius: 10px;
+            transform: translateX(-50%);
+        }
+
+        .button {
+            margin-top: 10px;
+        }
+
+        .timer {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .scoreboard {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container text-center">
+        <h1 class="mt-5">投籃小遊戲</h1>
+        <div id="timer" class="timer">60</div>
+        <div class="game-area mt-3">
+            <div id="basket" class="basket"></div>
+        </div>
+        <button id="startButton" class="btn btn-primary button">開始遊戲</button>
+        <div id="score" class="scoreboard mt-4">
+            <p>當前得分: <span id="currentScore">0</span></p>
+            <p>最高得分: <span id="highScore">0</span></p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        let gameInterval;
+        let timer;
+        let currentScore = 0;
+        let highScore = 0;
+        let timeLeft = 60;
+
+        // 啟動遊戲
+        document.getElementById('startButton').addEventListener('click', startGame);
+
+        // 開始遊戲的邏輯
+        function startGame() {
+            // 重置遊戲
+            timeLeft = 60;
+            currentScore = 0;
+            document.getElementById('currentScore').textContent = currentScore;
+            document.getElementById('timer').textContent = timeLeft;
+            document.getElementById('startButton').disabled = true;
+
+            // 開始計時器
+            gameInterval = setInterval(countdown, 1000);
+
+            // 隨機移動籃框
+            setInterval(moveBasket, 500);
+
+            // 監聽投籃
+            document.querySelector('.game-area').addEventListener('click', shootBasket);
+        }
+
+        // 倒數計時
+        function countdown() {
+            timeLeft--;
+            document.getElementById('timer').textContent = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(gameInterval);
+                endGame();
+            }
+        }
+
+        // 籃框隨機移動
+        function moveBasket() {
+            const basket = document.getElementById('basket');
+            const gameArea = document.querySelector('.game-area');
+            const maxX = gameArea.clientWidth - basket.clientWidth;
+            const randomX = Math.random() * maxX;
+            basket.style.left = randomX + 'px';
+        }
+
+        // 投籃的邏輯
+        function shootBasket(event) {
+            const basket = document.getElementById('basket');
+            const basketRect = basket.getBoundingClientRect();
+            const clickX = event.clientX;
+
+            // 判斷點擊位置是否在籃框範圍內
+            if (clickX >= basketRect.left && clickX <= basketRect.right) {
+                currentScore++;
+                document.getElementById('currentScore').textContent = currentScore;
+            }
+        }
+
+        // 結束遊戲
+        function endGame() {
+            // 更新最高得分
+            if (currentScore > highScore) {
+                highScore = currentScore;
+                document.getElementById('highScore').textContent = highScore;
+            }
+
+            // 顯示遊戲結束訊息
+            alert(`遊戲結束！您的得分是：${currentScore}`);
+
+            // 啟用開始按鈕
+            document.getElementById('startButton').disabled = false;
+        }
+    </script>
+</body>
+
+</html>

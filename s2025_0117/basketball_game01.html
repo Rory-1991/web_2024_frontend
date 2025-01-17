@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投籃小遊戲</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .game-area {
+            width: 100%;
+            height: 200px;
+            background-color: #f8f9fa;
+            border: 2px solid #ddd;
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .basket {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            width: 120px;
+            height: 80px;
+            background-color: #ff5733;
+            border-radius: 15px 15px 0 0;
+            transform: translateX(-50%);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border: 5px solid #fff;
+        }
+
+        .basket::before {
+            content: "";
+            position: absolute;
+            top: 70%;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background-color: #ff5733;
+            border-radius: 0 0 50% 50%;
+        }
+
+        .ball {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: #ffcc00;
+            border-radius: 50%;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+        }
+
+        .ball-fly {
+            animation: ballFly 1s forwards;
+        }
+
+        @keyframes ballFly {
+            0% {
+                bottom: 0;
+                opacity: 1;
+            }
+
+            100% {
+                bottom: 90px;
+                /* Adjust the final height to reach the basket */
+                left: 50%;
+                opacity: 0;
+            }
+        }
+
+        .button {
+            margin-top: 10px;
+        }
+
+        .timer {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .scoreboard {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container text-center">
+        <h1 class="mt-5">投籃小遊戲</h1>
+        <div id="timer" class="timer">60</div>
+        <div class="game-area mt-3">
+            <div id="basket" class="basket"></div>
+        </div>
+        <button id="startButton" class="btn btn-primary button">開始遊戲</button>
+        <button id="shootButton" class="btn btn-success button" disabled>投籃</button>
+        <button id="endGameButton" class="btn btn-danger button" disabled>結束遊戲</button>
+        <button id="resetScoreButton" class="btn btn-warning button">重置分數</button>
+        <div id="score" class="scoreboard mt-4">
+            <p>當前得分: <span id="currentScore">0</span></p>
+            <p>最高得分: <span id="highScore">0</span></p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        let gameInterval;
+        let timer;
+        let currentScore = 0;
+        let highScore = 0;
+        let timeLeft = 60;
+        let isGameActive = false;
+
+        // 啟動遊戲
+        document.getElementById('startButton').addEventListener('click', startGame);
+        document.getElementById('shootButton').addEventListener('click', shootBasket);
+        document.getElementById('endGameButton').addEventListener('click', endGame);
+        document.getElementById('resetScoreButton').addEventListener('click', resetScore);
+
+        // 開始遊戲的邏輯
+        function startGame() {
+            // 重置遊戲
+            timeLeft = 60;
+            currentScore = 0;
+            document.getElementById('currentScore').textContent = currentScore;
+            document.getElementById('timer').textContent = timeLeft;
+            document.getElementById('startButton').disabled = true;
+            document.getElementById('shootButton').disabled = false;
+            document.getElementById('endGameButton').disabled = false;
+
+            // 開始計時器
+            gameInterval = setInterval(countdown, 1000);
+
+            // 啟動遊戲
+            isGameActive = true;
+        }
+
+        // 倒數計時
+        function countdown() {
+            timeLeft--;
+            document.getElementById('timer').textContent = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(gameInterval);
+                endGame();
+            }
+        }
+
+        // 投籃的邏輯
+        function shootBasket() {
+            if (!isGameActive) return;
+
+            // 新增一個球元素
+            const ball = document.createElement('div');
+            ball.classList.add('ball');
+            document.querySelector('.game-area').appendChild(ball);
+
+            // 開始投籃動畫
+            ball.classList.add('ball-fly');
+
+            // 判斷投籃分數
+            let points = 0;
+            if (timeLeft > 30) {
+                points = 3; // 前30秒是三分球
+            } else {
+                points = 2; // 後30秒是兩分球
+            }
+
+            // 更新分數
+            currentScore += points;
+            document.getElementById('currentScore').textContent = currentScore;
+
+            // 移除已經完成動畫的球
+            setTimeout(() => {
+                ball.remove();
+            }, 1000); // 動畫時間結束後移除球
+        }
+
+        // 結束遊戲
+        function endGame() {
+            // 更新最高得分
+            if (currentScore > highScore) {
+                highScore = currentScore;
+                document.getElementById('highScore').textContent = highScore;
+            }
+
+            // 顯示遊戲結束訊息
+            alert(`遊戲結束！您的得分是：${currentScore}`);
+
+            // 啟用開始按鈕
+            document.getElementById('startButton').disabled = false;
+            document.getElementById('shootButton').disabled = true;
+            document.getElementById('endGameButton').disabled = true;
+
+            // 停止遊戲
+            isGameActive = false;
+        }
+
+        // 重置分數
+        function resetScore() {
+            currentScore = 0;
+            document.getElementById('currentScore').textContent = currentScore;
+        }
+    </script>
+</body>
+
+</html>

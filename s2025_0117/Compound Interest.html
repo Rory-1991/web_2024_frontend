@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>複利計算</title>
+    <!-- link css 順序 1.bs 2.self -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+        integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <div class="container mt-3">
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <input type="text" name="form-control" id="originInput" class="form-control" placeholder="起始金額 (例: 10)">
+            </div>
+            <div class="col-md-6">
+                <input type="text" name="form-control" id="rateInput" class="form-control" placeholder="利率 (例: 1.08)">
+            </div>
+        </div>
+        <button type="button" id="myBtn" class="btn btn-primary">計算複利</button>
+    </div>
+
+    <hr>
+
+    <div class="container-fluid mt-3">
+        <h2>複利計算 每年投 <span id="myOrigin">10</span> 萬， 利率 <span id="myRate">1.08</span></h2>
+        <table class="table table-bordered" id="myTable">
+            <thead>
+                <tr>
+                    <th>年份</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th>7</th>
+                    <th>8</th>
+                    <th>9</th>
+                    <th>10</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 這裡的內容會由 JavaScript 填充 -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- js include 順序 1.bs 2.jq 3.self -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"
+        integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+            // 初始值設定
+            const initOriginMoney = 10;
+            const initRate = 1.08;
+
+            const originInput = $('#originInput');
+            const rateInput = $('#rateInput');
+            const myBtn = $('#myBtn');
+            const myOrigin = $('#myOrigin');
+            const myRate = $('#myRate');
+            const myTbody = $('#myTable tbody');
+
+            // 計算複利
+            function calculate() {
+                let originMoney = parseFloat(originInput.val());
+                let rate = parseFloat(rateInput.val());
+
+                // 檢查輸入是否合法
+                if (isNaN(originMoney) || isNaN(rate) || originMoney <= 0 || rate <= 0) {
+                    alert("請輸入有效的金額和利率 (金額應大於零，利率應大於零)");
+                    return;
+                }
+
+                myOrigin.text(originMoney);
+                myRate.text(rate);
+
+                // 計算複利結果
+                let yearlyData = generateYearlyData(originMoney, rate);
+                updateTable(yearlyData);
+            }
+
+            // 生成每年的複利數據
+            function generateYearlyData(originMoney, rate) {
+                let yearlyData = [];
+                let sum = originMoney;
+
+                // 計算每年的複利
+                for (let year = 1; year <= 10; year++) {
+                    let yearData = { name: `第${year}年` };
+
+                    for (let i = 1; i <= 10; i++) {
+                        yearData[i] = sum.toFixed(2);
+                        sum *= rate;  // 計算下一年的複利
+                    }
+
+                    yearlyData.push(yearData);
+                }
+
+                return yearlyData;
+            }
+
+            // 更新表格內容
+            function updateTable(yearlyData) {
+                myTbody.empty();  // 清空表格內容
+
+                // 填充新資料
+                yearlyData.forEach((data) => {
+                    let row = `<tr>
+                        <td class="tdname">${data.name}</td>
+                        ${[...Array(10).keys()].map(i => `<td class="td${i + 1}">${data[i + 1]}</td>`).join('')}
+                    </tr>`;
+                    myTbody.append(row);
+                });
+            }
+
+            // 初始化顯示
+            calculate();
+
+            // 按鈕點擊事件
+            myBtn.click(function () {
+                calculate();
+            });
+        });
+    </script>
+</body>
+
+</html>
