@@ -72,7 +72,7 @@
                             倒數計時<br>
                             <span id="timer">60</span>
                         </div>
-                        <div>
+                        <div id="clearHighScore">
                             最高分數<br>
                             <span id="highScore">999</span>
                         </div>
@@ -125,10 +125,18 @@
             const startBtn = $('#startBtn');
             const shootBtn = $('#shootBtn');
             const resetBtn = $('#resetBtn');
+            const clearHighScore = $('#clearHighScore');
 
             let scoreVar = 0;
-            let scoreHighVar = 0;
-            let timeVar = 20;
+
+            // 預設0 有最高 就抓最高分數
+            // localStorage.setItem('highScore', 0);
+            // let scoreHighVar = 0;
+            let scoreHighVar = localStorage.getItem('highScore');
+            console.log('scoreHighVar', scoreHighVar);
+
+
+            let timeVar = 3;
             let gameFlag = true;
             let tmpTime = 0;
 
@@ -183,16 +191,43 @@
                     scoreVar += 2;
                 }
 
-
-
+                // 最高分數 < 目前分數
+                if (scoreHighVar < scoreVar) {
+                    localStorage.setItem('highScore', scoreVar);
+                    highScore.text(scoreVar);
+                }
 
                 nowScore.text(scoreVar);
             });
 
             resetBtn.click(function (e) {
                 console.log('resetBtn ok');
+                // 倒數計時 60
+                // 分數 0
+
+                // 倒數計時 60
+                tmpTime = 0
+                timer.text(timeVar);
+                console.log('timeVar', timeVar);
+                console.log('tmpTime', tmpTime);
+                // gameFlag false false
+                gameFlag = true;
+                console.log('gameFlag', gameFlag);
+
+                // 分數 0
+                scoreVar = 0;
+                nowScore.text(scoreVar);
             });
 
+            // 最高分數清除
+            clearHighScore.click(function (e) {
+                localStorage.setItem('highScore', 0);
+                scoreHighVar = 0;
+                scoreHighVar = localStorage.getItem('highScore');
+                console.log('scoreHighVar', scoreHighVar);
+                highScore.text(scoreHighVar);
+
+            });
 
         });
     </script>
