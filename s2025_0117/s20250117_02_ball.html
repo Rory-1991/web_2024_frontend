@@ -128,8 +128,9 @@
 
             let scoreVar = 0;
             let scoreHighVar = 0;
-            let timeVar = 3;
+            let timeVar = 20;
             let gameFlag = true;
+            let tmpTime = 0;
 
             nowScore.text(scoreVar);
             highScore.text(scoreHighVar);
@@ -148,7 +149,7 @@
                 console.log('startBtn ok');
                 // timer -1 / sec / 開始 start 停止 0
                 const myInterval = setInterval(myTimer, 1000);
-                let tmpTime = timeVar;
+                tmpTime = timeVar;
                 function myTimer() {
                     tmpTime = tmpTime - 1;
                     if (tmpTime < 0) {
@@ -172,7 +173,18 @@
                     console.log('gameFlag false', gameFlag);
                     return false;
                 }
-                scoreVar += 2;
+                // 兩分球 31-60
+                // 三分球 0-30
+                console.log('tmpTime', tmpTime);
+                if (tmpTime <= 10) {
+                    scoreVar += 3;
+                } else {
+                    scoreVar += 2;
+                }
+
+
+
+
                 nowScore.text(scoreVar);
             });
 
