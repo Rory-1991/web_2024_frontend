@@ -43,15 +43,16 @@
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <!-- <script src="../kai/pw.js"></script> -->
-    <!-- <img src="./php/data.php" alt="" srcset=""> -->
+
     <script>
         $(document).ready(function () {
             // cors warning
-            // let url = `http://localhost/php/s20250123/php/data.php`;
+            // https://data.gov.tw/dataset/134270
+            // let url = `https://publicart.taipei/service/artgetdata.ashx?District_tw=&completeinstallYear=&site_tw=`;
+
 
             // public
-            let url = `http://localhost/s2025_0123/php/data_public.php`;
+            let url = `http://localhost/s2025_0123/php/curl.php`;
 
             $.ajax({
                 type: "get",
