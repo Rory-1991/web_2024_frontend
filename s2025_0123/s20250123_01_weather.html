@@ -21,28 +21,39 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="../Roy/pw.js"></script>
+
     <script>
         $(document).ready(function () {
-            let url = 'https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWA-3DDF4E5B-6AB6-46E9-A2E3-28E542A606BF';
+            let pwd = pw;
+            console.log('pwd', pwd);
+
+            let url = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${pwd}`;
+
             $.ajax({
                 type: "get",
                 url: url,
                 // data: "data",
                 dataType: "Json",
                 success: function (response) {
-                    console.log('response', response);
+                    // console.log('response', response);
+                    // let data = response.records.location[1].locationName
+
                     let data = {
-                        city1: response.records.location[1],
+                        city1: response.records.location[1].locationName,
                         city2: response.records.location[12]
                     };
                     console.log('data', data);
 
 
-                    /* let data1 = response.records.location[1];
-                    let data2 = response.records.location[12];
+                    /*    let data1 = response.records.location[1];
+                       data2 = response.records.location[12];
+   
+                       console.log('data1', data1);
+                       console.log('data2', data2);
+    */
 
-                    console.log('data1', data1);
-                    console.log('data2', data2); */
                 }
             });
 
