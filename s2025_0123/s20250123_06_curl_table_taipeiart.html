@@ -24,7 +24,7 @@
                     <th>NAME</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="myTbody">
                 <!-- <tr>
                     <td>1</td>
                     <td>新北市</td>
@@ -43,15 +43,16 @@
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <!-- <script src="../kai/pw.js"></script> -->
-    <!-- <img src="./php/data.php" alt="" srcset=""> -->
+
     <script>
         $(document).ready(function () {
             // cors warning
-            // let url = `http://localhost/php/s20250123/php/data.php`;
+            // https://data.gov.tw/dataset/134270
+            // let url = `https://publicart.taipei/service/artgetdata.ashx?District_tw=&completeinstallYear=&site_tw=`;
+
 
             // public
-            let url = `http://localhost/php/s2025_0123/curl.php`;
+            let url = `http://localhost/s2025_0123/php/curl.php`;
 
             $.ajax({
                 type: "get",
@@ -62,8 +63,26 @@
                     console.log('ajax ok');
                     console.log('res', res);
 
+                    let data1 = res[0]
+                    let data2 = res[0].作品名稱
+                    // console.log('data1', data1);
+                    // console.log('data2', data2);
 
+                    let tmpName;
+                    let temText;
+                    $.each(res, function (key, value) {
+                        console.log(key);
+                        console.log(value.作品名稱);
+                        tmpName = value.作品名稱;
+                        temText = `
+                                 <tr>
+                                     <td>${key + 1}</td>
+                                     <td>${tmpName}</td>
+                                </tr>
+                             `;
 
+                        $("#myTbody").append(temText);
+                    });
 
 
                 }
