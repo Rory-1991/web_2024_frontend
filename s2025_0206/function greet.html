@@ -4,7 +4,7 @@
 <body>
 
     <script>
-        let age = 25; // 設定年齡
+        let age0 = 25; // 設定年齡
         const name = "Alice"; // 設定名字
 
         function greet(person) {
@@ -13,6 +13,45 @@
 
         // 將函數的結果顯示在網頁上
         document.body.innerHTML = greet({ name: name });
+
+    </script>
+
+
+    <script>
+        let people = [
+            { name: "Alice" },
+            { name: "Bob" },
+            { name: "Charlie" }
+        ]; // 設定多個人名
+
+        function greet(person) {
+            return "Hello, " + person.name;
+        }
+
+        // 顯示每個人的問候語
+        let greeting = people.map(person => greet(person)); // 使用 map 生成每個人的問候語
+        document.body.innerHTML = greetings.join('<br>'); // 顯示所有問候語，並用換行符分隔
+
+    </script>
+
+
+
+    <script>
+        let age1 = 25; // 設定年齡
+        const names = ["Alice", "Bob", "Charlie"]; // 設定多個名字
+
+        function greet(person) {
+            return "Hello, " + person.name;
+        }
+
+        // 使用迴圈顯示每個人的問候
+        let greetings = "";
+        for (let i = 0; i < names.length; i++) {
+            greetings += greet({ name: names[i] }) + "<br>";
+        }
+
+        // 將函數的結果顯示在網頁上
+        document.body.innerHTML = greetings;
 
     </script>
 
