@@ -15,16 +15,16 @@
 
 
     <div class="container mt-3">
-        <h2>Hover Rows</h2>
-        <p>The .table-hover class enables a hover state (grey background on mouse over) on table rows:</p>
+        <h2>天氣API 資料</h2>
+        <p>36小時天氣資訊</p>
         <table class="table table-hover" id="myTable">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>NAME</th>
-                    <th>time1</th>
-                    <th>time2</th>
-                    <th>time3</th>
+                    <th id="th-time1">time1</th>
+                    <th id="th-time2">time2</th>
+                    <th id="th-time3">time3</th>
                 </tr>
             </thead>
             <tbody>
@@ -54,6 +54,9 @@
 
             // 1.bind
             const myTable = $('#myTable');
+            const thTime1 = $('#th-time1');
+            const thTime2 = $('#th-time2');
+            const thTime3 = $('#th-time3');
             const myTbody = myTable.find('tbody');
             console.log('myTbody', myTbody);
 
@@ -72,6 +75,54 @@
                     data = res.records.location;
                     console.log('data', data);
 
+                    // time1
+                    let startTime1 = data[0].weatherElement[2].time[0].startTime;
+                    let endTime1 = data[0].weatherElement[2].time[0].endTime;
+                    // console.log('startTime1', startTime1);
+                    // console.log('endTime1', endTime1);
+                    // 2025-02-04 06:00:00
+                    let tmpDate = startTime1.substr(0, 10);
+                    let tmpStartText = startTime1.substr(11, 2);
+                    let tmpEndText = endTime1.substr(11, 2);
+                    // console.log('tmpDate', tmpDate);
+                    // console.log('tmpStartText', tmpStartText);
+                    // console.log('tmpEndText', tmpEndText);
+
+                    let textTime1 = `${tmpDate} [${tmpStartText} - ${tmpEndText}]`;
+                    // console.log('textTime1', textTime1);
+                    thTime1.text(textTime1);
+
+                    // time2
+                    let startTime2 = data[0].weatherElement[2].time[1].startTime;
+                    let endTime2 = data[0].weatherElement[2].time[1].endTime;
+                    // 2025-02-04 06:00:00
+                    tmpDate = startTime2.substr(0, 10);
+                    tmpStartText = startTime2.substr(11, 2);
+                    tmpEndText = endTime2.substr(11, 2);
+                    // console.log('tmpDate', tmpDate);
+                    // console.log('tmpStartText', tmpStartText);
+                    // console.log('tmpEndText', tmpEndText);
+
+                    let textTime2 = `${tmpDate} [${tmpStartText} - ${tmpEndText}]`;
+                    // console.log('textTime2', textTime2);
+                    thTime2.text(textTime2);
+
+                    // time3
+                    let startTime3 = data[0].weatherElement[2].time[2].startTime;
+                    let endTime3 = data[0].weatherElement[2].time[2].endTime;
+                    // 2025-02-04 06:00:00
+                    tmpDate = startTime3.substr(0, 10);
+                    tmpStartText = startTime3.substr(11, 2);
+                    tmpEndText = endTime3.substr(11, 2);
+                    // console.log('tmpDate', tmpDate);
+                    // console.log('tmpStartText', tmpStartText);
+                    // console.log('tmpEndText', tmpEndText);
+
+                    let textTime3 = `${tmpDate} [${tmpStartText} - ${tmpEndText}]`;
+                    // console.log('textTime3', textTime3);
+                    thTime3.text(textTime3);
+
+
                     $.each(data, function (key, value) {
                         // console.log('key', key);
                         // console.log('value', value.locationName);
@@ -88,13 +139,13 @@
                         let tmpMaxTtime1 = tmpWeatherElement[4].time[1].parameter['parameterName'];
                         let tmpMaxTtime2 = tmpWeatherElement[4].time[2].parameter['parameterName'];
 
-                        console.log('tmpMinTtime0', tmpMinTtime0);
-                        console.log('tmpMinTtime1', tmpMinTtime1);
-                        console.log('tmpMinTtime2', tmpMinTtime2);
+                        // console.log('tmpMinTtime0', tmpMinTtime0);
+                        // console.log('tmpMinTtime1', tmpMinTtime1);
+                        // console.log('tmpMinTtime2', tmpMinTtime2);
 
-                        console.log('tmpMaxTtime0', tmpMaxTtime0);
-                        console.log('tmpMaxTtime1', tmpMaxTtime1);
-                        console.log('tmpMaxTtime2', tmpMaxTtime2);
+                        // console.log('tmpMaxTtime0', tmpMaxTtime0);
+                        // console.log('tmpMaxTtime1', tmpMaxTtime1);
+                        // console.log('tmpMaxTtime2', tmpMaxTtime2);
 
 
                         // console.log('tmpWeatherElement', tmpWeatherElement);
@@ -103,7 +154,7 @@
                         // );
 
                         // 1.地名
-                        console.log('tmpLocationName', tmpLocationName);
+                        // console.log('tmpLocationName', tmpLocationName);
 
                         // 2.table
                         let temText = `

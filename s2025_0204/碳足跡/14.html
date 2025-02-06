@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>碳足跡資料表格</title>
+    <!-- 引入 Bootstrap 5 的樣式 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+        integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* 設定表格最大高度為 500px，並且如果內容超過就顯示滾動條 */
+        #myTableWrapper {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        /* 讓表格顯示在同一行，避免換行 */
+        table {
+            white-space: nowrap;
+        }
+
+        /* 讓表格內容在螢幕較大時不會換行 */
+        th,
+        td {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            max-width: 200px;
+            /* 限制欄位最大寬度 */
+        }
+
+        /* 調整公告年份的位置，使其稍微向前 */
+        th:nth-child(5),
+        td:nth-child(5) {
+            padding-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <h2>碳足跡資料查詢</h2>
+        <p>可以依照「係數名稱」搜尋，並依照公告年份排序。</p>
+
+        <!-- 搜尋框 -->
+        <div class="mb-3">
+            <label for="searchInput" class="form-label">搜尋 係數名稱：</label>
+            <input type="text" class="form-control" id="searchInput" placeholder="輸入係數名稱搜尋...">
+        </div>
+
+        <!-- 資料表格 -->
+        <div id="myTableWrapper">
+            <table class="table table-hover table-striped" id="myTable">
+                <thead>
+                    <tr>
+                        <th>係數名稱</th>
+                        <th>碳足跡數值 (kgCO2e)</th>
+                        <th>宣告單位</th>
+                        <th>政府部門/公司名稱</th>
+                        <th>公告年份</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 資料行會動態填充 -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 引入 Bootstrap 5 和 jQuery 的 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"
+        integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+            const myTable = $('#myTable');  // 取得表格的 jQuery 物件
+            const myTbody = myTable.find('tbody');  // 取得表格的 tbody 物件
+            const searchInput = $('#searchInput');  // 取得搜尋框的 jQuery 物件
+
+            // 資料檔案 URL（假設資料是放在 data/data2.json）
+            let url = `./data/data2.json`;
+
+            // 使用 AJAX 載入 JSON 資料
+            $.ajax({
+                type: "GET",
+                url: url,
+                dataType: "json",
+                success: function (res) {
+                    // 依公告年份降序排列資料
+                    res.records.sort((a, b) => parseInt(b.announcementyear) - parseInt(a.announcementyear));
+
+                    // 清空表格資料
+                    myTbody.empty();
+
+                    // 遍歷 JSON 中的資料並添加到表格中
+                    res.records.forEach(function (item) {
+                        let row = `
+                            <tr>
+                                <td>${item.name}</td>
+                                <td>${item.coe}</td>
+                                <td>${item.unit}</td>
+                                <td>${item.departmentname}</td>
+                                <td>${item.announcementyear}</td>
+                            </tr>
+                        `;
+                        myTbody.append(row);  // 將新的一行資料加入表格
+                    });
+
+                    // 搜尋過濾功能：即時過濾表格資料
+                    searchInput.on('input', function () {
+                        let query = searchInput.val().toLowerCase();  // 取得搜尋框中的內容並轉為小寫
+
+                        // 遍歷表格中的每一行資料
+                        myTbody.find('tr').each(function () {
+                            let row = $(this);
+                            let coefficientName = row.find('td').first().text().toLowerCase();  // 取得「係數名稱」並轉為小寫
+
+                            // 判斷係數名稱是否包含搜尋關鍵字
+                            if (coefficientName.includes(query)) {
+                                row.show();  // 顯示符合條件的資料行
+                            } else {
+                                row.hide();  // 隱藏不符合條件的資料行
+                            }
+                        });
+                    });
+                },
+                error: function (err) {
+                    console.log('錯誤：無法載入資料', err);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- link css 順序 1.bs 2.self -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+        integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container mt-3">
+        <h1>今日股市</h1>
+        <table class="table table-hover" id="myTable">
+            <thead>
+                <tr>
+                    <th>代號</th>
+                    <th>名稱</th>
+                    <th>開盤價</th>
+                    <th>收盤價</th>
+                    <th>最低價</th>
+                    <th>最高價</th>
+                    <th>成交筆數</th>
+                    <th>成交金額</th>
+                    <th>成交股數</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr>
+                    <td>證券代號</td>
+                    <td>證券名稱</td>
+                    <td>開盤價</td>
+                    <td>收盤價</td>
+                    <td>最低價</td>
+                    <td>最高價</td>
+                    <td>成交筆數</td>
+                    <td>成交金額</td>
+                    <td>成交股數</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+    <!-- js include 順序 1.bs 2.jq 3.self -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"
+        integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="../youyu/pw.js">
+    </script>
+    <script>
+        $(document).ready(function () {
+
+            let url = `data/stock.json`
+
+            // 1. bind
+            const myTable = $("#myTable")
+            const myTbody = myTable.find('tbody')
+
+            $.ajax({
+                type: "get",
+                url: url,
+                // data:"data",
+                dataType: "Json",
+                success: function (res) {
+                    console.log('res', res);
+
+                    $.each(res, function (key, value) {
+                        // 1.抓出
+                        console.log('key', key);
+                        console.log('value', value);
+                        let data = `<tr>
+                                        <td>${value['證券代號']}</td>
+                                        <td>${value['證券名稱']}</td>
+                                        <td>${value['開盤價']}</td>
+                                        <td>${value['收盤價']}</td>
+                                        <td>${value['最低價']}</td>
+                                        <td>${value['最高價']}</td>
+                                        <td>${value['成交筆數']}</td>
+                                        <td>${value['成交金額']}</td>
+                                        <td>${value['成交股數']}</td>
+                                    </tr>`
+                        myTbody.append(data)
+                    })
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>

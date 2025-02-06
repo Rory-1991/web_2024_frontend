@@ -9,10 +9,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
         integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* 調整表格欄位間距 */
+        table th,
+        table td {
+            padding: 10px 12px;
+            /* 調整內邊距，減小間距 */
+            text-align: center;
+            white-space: nowrap;
+            /* 確保文字不會換行 */
+        }
+
+        /* 設置表格寬度 */
+        table {
+            table-layout: fixed;
+            /* 設置固定表格寬度，防止寬度過大 */
+        }
+
+        /* 確保每列的內容垂直置中 */
+        table td,
+        table th {
+            vertical-align: middle;
+        }
+    </style>
 </head>
 
 <body>
-
 
     <div class="container mt-3">
         <h2>臺北市公共藝術</h2>
@@ -22,17 +44,15 @@
                 <tr>
                     <th>ID</th>
                     <th>作品名稱</th>
+                    <th>行政區</th>
+                    <th>作者</th>
                 </tr>
             </thead>
             <tbody id="myTbody">
-                <!-- <tr>
-                    <td>1</td>
-                    <td>新北市</td>
-                </tr> -->
+                <!-- 資料將動態加入這裡 -->
             </tbody>
         </table>
     </div>
-
 
     <!-- js include 順序 1.bs 2.jq 3.self -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"
@@ -43,15 +63,9 @@
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-
     <script>
         $(document).ready(function () {
-            // cors warning
-            // https://data.gov.tw/dataset/134270
-            // let url = `https://publicart.taipei/service/artgetdata.ashx?District_tw=&completeinstallYear=&site_tw=`;
-
-
-            // public
+            // API URL，可以根據需要進行更改
             let url = `http://localhost/s2025_0123/php/curl.php`;
 
             $.ajax({
@@ -63,35 +77,32 @@
                     console.log('ajax ok');
                     console.log('res', res);
 
-                    let data1 = res[0]
-                    let data2 = res[0].作品名稱
-                    // console.log('data1', data1);
-                    // console.log('data2', data2);
-
-                    let tmpName;
+                    let tmpName, tmpDistrict, tmpAuthor;
                     let temText;
-                    $.each(res, function (key, value) {
-                        console.log(key);
-                        console.log(value.作品名稱);
-                        tmpName = value.作品名稱;
-                        temText = `
-                                 <tr>
-                                     <td>${key + 1}</td>
-                                     <td>${tmpName}</td>
-                                </tr>
-                             `;
 
+                    $.each(res, function (key, value) {
+                        tmpName = value.作品名稱; // 作品名稱
+                        tmpDistrict = value.行政區; // 行政區
+                        tmpAuthor = value.作者 || '未知'; // 如果作者資料沒有，顯示 "未知"
+
+                        // 將每筆資料新增到表格
+                        temText = `
+                            <tr>
+                                <td>${key + 1}</td>
+                                <td>${tmpName}</td>
+                                <td>${tmpDistrict}</td> <!-- 顯示行政區 -->
+                                <td>${tmpAuthor}</td> <!-- 顯示作者 -->
+                            </tr>
+                        `;
+
+                        // 將新行加到表格的 <tbody>
                         $("#myTbody").append(temText);
                     });
-
-
                 }
             });
-
-
-
         });
     </script>
+
 </body>
 
 </html>
