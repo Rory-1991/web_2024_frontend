@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- link css 順序 1.bs 2.self -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+        integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <div class="container mt-3">
+        <h2>Bordered Table</h2>
+        <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                    <th>Opt</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                    <td>
+                        <button type="button" class="btn btn-warning" id="editBtn">edit</button>
+                        <button type="button" class="btn btn-danger" id="delBtn">del</button>
+                        <button type="button" class="btn btn-info" id="copyBtn">copy</button>
+                        <button type="button" class="btn btn-success" id="xBtn">X</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <!-- js include 順序 1.bs 2.jq 3.self -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"
+        integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+            // 1.bind
+            const editBtn = $('#editBtn');
+            const delBtn = $('#delBtn');
+            const copyBtn = $('#copyBtn');
+            const xBtn = $('#xBtn');
+
+            // 2.action
+            editBtn.click(function (e) {
+                console.log('edit ok');
+
+            });
+
+            delBtn.click(function (e) {
+                console.log('delBtn ok');
+
+            });
+
+            xBtn.click(function (e) {
+                // console.log('delBtn ok');
+                const tmpTr = $(this).closest('tr');
+                tmpTr.remove();
+            });
+
+            copyBtn.click(function (e) {
+                console.log('copyBtn ok');
+
+                // 1.tr
+                const tmpTr = $(this).closest('tr');
+                console.log('tmpTr', tmpTr);
+
+                // 2.copy
+                // $("p").clone().appendTo("body");
+                tmpTr.clone(true).appendTo("tbody");
+
+
+            });
+
+
+        });
+    </script>
+</body>
+
+</html>

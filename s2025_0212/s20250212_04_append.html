@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- link css 順序 1.bs 2.self -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+        integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .box {
+            border: 1px solid black;
+            padding: 50px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <button id="appendBtn" type="button" class="btn btn-primary btn-lg">append</button>
+                <button id="prependBtn" type="button" class="btn btn-danger btn-lg">prepend</button>
+                <button id="afterBtn" type="button" class="btn btn-warning btn-lg">after</button>
+                <button id="beforeBtn" type="button" class="btn btn-info btn-lg">before</button>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <!-- before -->
+                <div class="box">
+                    <p>origin Lorem ipsum dolor sit amet.</p>
+                </div>
+                <!-- after -->
+            </div>
+        </div>
+    </div>
+
+    <!-- js include 順序 1.bs 2.jq 3.self -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"
+        integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+
+
+        $(document).ready(function () {
+            // 1.bind
+            const appendBtn = $('#appendBtn');
+            const prependBtn = $('#prependBtn');
+            const afterBtn = $('#afterBtn');
+            const beforeBtn = $('#beforeBtn');
+            const box = $('.box');
+            let count = 0;
+
+            // 2.action
+            appendBtn.click(function (e) {
+                // console.log('appendBtn', appendBtn);
+                count++;
+                let tmpText = `<p>第${count}次 Lorem ipsum dolor sit amet.</p>`;
+                box.append(tmpText);
+            });
+
+            prependBtn.click(function (e) {
+                // console.log('appendBtn', appendBtn);
+                count++;
+                let tmpText = `<p>第${count}次 Lorem ipsum dolor sit amet.</p>`;
+                box.prepend(tmpText);
+            });
+
+            afterBtn.click(function (e) {
+                // console.log('appendBtn', appendBtn);
+                count++;
+                let tmpText = `<p>第${count}次 Lorem ipsum dolor sit amet.</p>`;
+                box.after(tmpText);
+            });
+
+            beforeBtn.click(function (e) {
+                // console.log('appendBtn', appendBtn);
+                count++;
+                let tmpText = `<p>第${count}次 Lorem ipsum dolor sit amet.</p>`;
+                box.before(tmpText);
+            });
+
+            // jquery clone
+
+
+        });
+    </script>
+</body>
+
+</html>
